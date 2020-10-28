@@ -6,6 +6,6 @@ const userModelSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String },
     registrationDate: { type: Date, required: true}
-});
+});//include carbon footprint
 
 export default mongoose.model('users', userModelSchema);
