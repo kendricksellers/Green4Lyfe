@@ -1,0 +1,13 @@
+
+.login-button {
+    bottom: 90%;
+    left: 91%;
+    position: absolute;
+}
+.take-quiz-button {
+    width: 500px;
+}
+.bottom-text {
+    bottom: 90%;
+    right: 90%;
+}

@@ -1,0 +1,19 @@
+.button, input[type=submit] {
+    type: button;
+    position: relative;
+    border-radius: 0px;
+    padding: 15px 25px;
+    border: none;
+    background-color: #29BD4F;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 16px;
+}
+.button:hover, input[type=submit]:hover {
+    background-color: #1B8335;
+}
+body {
+    background-color:#CEFFDA;
+    font-size: 16px;
+    font-family: Arial;
+}
