@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './App.css'
 import './green4lyfe.css'
 import VideoImage from './video-generic-ss-1920.png'
@@ -10,9 +11,9 @@ class App extends React.Component {
       <div>
 	Green4Lyfe image here
       </div>
-      <button className="button login-button">
+      <Link to='/login'><button className="button login-button">
 	Log in
-      </button>
+      </button></Link>
       <div style={{position: 'absolute', bottom: '30%', left: '30%'}}>
         <img src={VideoImage} alt="Generic video image" style={{height: '300px', width: '500px'}} />
 	<button className="button take-quiz-button">
