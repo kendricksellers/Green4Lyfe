@@ -8,17 +8,17 @@ class App extends React.Component {
     render() {
 	return (
     <div className="App">
-      <div>
+      <Link to='/'><div>
 	Green4Lyfe image here
-      </div>
+      </div></Link>
       <Link to='/login'><button className="button login-button">
 	Log in
       </button></Link>
       <div style={{position: 'absolute', bottom: '30%', left: '30%'}}>
         <img src={VideoImage} alt="Generic video image" style={{height: '300px', width: '500px'}} />
-	<button className="button take-quiz-button">
+	<Link to='/register'><button className="button take-quiz-button">
 	  Take the quiz
-	</button>
+	</button></Link>
       </div>
       <div style={{position: 'absolute', bottom: '10%', right: '65%'}}>
 	Take our quiz for a wonderful Green experience! We promise<br></br>

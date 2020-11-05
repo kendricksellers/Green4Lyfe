@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './Register.css'
 import './green4lyfe.css'
 
@@ -6,9 +7,9 @@ class Register extends React.Component {
     render() {
 	return (	    
   <div>
-    <div>
+    <Link to='/'><div>
       Green4Lyfe image here
-    </div>
+    </div></Link>
 
     <div class="register">
       <b>Thank you for taking our quiz!</b>
@@ -19,13 +20,11 @@ class Register extends React.Component {
       <br/>
       <br/>
       <div>
-	<form action="fake.js">
 	  <input type="text" id="Username" name="Username" placeholder="Username"/><br/>
 	  <input type="text" id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
 	  <input type="text" id="Password" name="Password" placeholder="Password"/><br/>
   	  <input type="text" id="Password" name="Password" placeholder="Re-enter Password"/><br/>
 	  <input type="submit" value="Register" class="button" width="100%"/>
-	</form>
       </div>
     </div>
     <div>
