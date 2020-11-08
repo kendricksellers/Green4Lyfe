@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
 
 const userQuizModelSchema = new mongoose.Schema({
-    username: { type: String, required: true }
-    /* Unsure of all the information/questions that the test will have 
-    and the format it will use, so leaving this blank for now */
+    username: { type: String, required: true },
+    answers: [
+        {
+            questionID: { type: Number, required: true },
+            answer: { type: String, required: true }
+        }
+    ]
 });
 
 export default mongoose.model('quizResults', userQuizModelSchema);

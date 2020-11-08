@@ -1,10 +1,5 @@
 export const findAll = async (table, res) => {
-    table.find({}, (err, data) => {
-        if (err) {
-            return res.status(200).send({ error: err.message || 'Unknown error occurred!' });
-        }
-        res.json(data);
-    });
+    return findByQuery(table, {}, res);
 }
 
 export const deleteAll = async (table, res) => {
@@ -19,11 +14,13 @@ export const deleteAll = async (table, res) => {
 }
 
 export const findByQuery = async (table, query, res) => {
-    table.find(query, (err, data) => {
+    return table.find(query, (err, data) => {
         if (err) {
             return res.status(200).send({ error: err.message || 'Unknown error occurred!' });
+        } else if (data.length == 0) {
+            return res.status(200).send( { error: "No query items found"});
         }
-        res.json(data);
+        return data;
     });
 }
 
@@ -39,13 +36,13 @@ export const deleteByQuery = async (table, query, res) => {
 }
 
 export const updateTable = async (table, id, updatedValues, res) => {
-    table.findOne(id).then(data => {
+    return table.findOne(id).then(data => {
         for (const key in updatedValues) {
             data[key] = updatedValues[key];
         }
 
-        data.save().then(saved => {
-            res.json(saved);
+        return data.save().then(saved => {
+            return saved;
         }).catch(err => {
             return res.status(200).send({ error: err.message || 'Unknown error occurred!' });
         });
@@ -55,8 +52,8 @@ export const updateTable = async (table, id, updatedValues, res) => {
 }
 
 export const create = async (table, data, res) => {
-    await new table(data).save().then((data) => {
-        res.json(data);
+    return await new table(data).save().then((data) => {
+        return data;
     }).catch((err) => {
         return res.status(200).send({ error: err.message || 'Unknown error occurred!' });
     });

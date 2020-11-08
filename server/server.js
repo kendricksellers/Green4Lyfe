@@ -2,6 +2,8 @@ import bodyParser from 'body-parser';
 import config from './config/config.js'
 import { connectToDatabase } from './connectToMongoDB.js';
 import userRouter from './routers/userModelRouter.js';
+import userQuizRouter from './routers/userQuizModelRouter.js';
+import blogPostRouter from './routers/blogPostModelRouter.js';
 import express from 'express';
 const app = express();
 
@@ -25,6 +27,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/api/users/', userRouter);
+app.use('/api/quizzes/', userQuizRouter);
+app.use('/api/posts/', blogPostRouter);
 
 const port = config.port;
 app.listen(port, () => {
