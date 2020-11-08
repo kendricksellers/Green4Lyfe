@@ -14,16 +14,16 @@ class Register extends React.Component {
     <div class="register">
       <b>Thank you for taking our quiz!</b>
       <br/>
-      <b>Register and account to save and access
-	<br/>your quiz results as well as other features
-	<br/>if our website!</b>
+      <b>Register for an account to save and access
+	<br/>your quiz results and other features
+	<br/>of our website!</b>
       <br/>
       <br/>
       <div>
 	  <input type="text" id="Username" name="Username" placeholder="Username"/><br/>
 	  <input type="text" id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
-	  <input type="text" id="Password" name="Password" placeholder="Password"/><br/>
-  	  <input type="text" id="Password" name="Password" placeholder="Re-enter Password"/><br/>
+	  <input type="password" id="Password" name="Password" placeholder="Password"/><br/>
+  	  <input type="password" id="Password" name="Password" placeholder="Re-enter Password"/><br/>
 	  <input type="submit" value="Register" class="button" width="100%"/>
       </div>
     </div>
