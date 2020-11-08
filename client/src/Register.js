@@ -2,14 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './Register.css'
 import './green4lyfe.css'
+import VideoImage from './video-generic-ss-1920.png'
+import Logo from './LOGO-Black-Scrumbags.png'
 
 class Register extends React.Component {
     render() {
 	return (	    
   <div>
-    <Link to='/'><div>
-      Green4Lyfe image here
-    </div></Link>
+      <Link to='/'>
+		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
+      </Link>
 
     <div class="register">
       <b>Thank you for taking our quiz!</b>
