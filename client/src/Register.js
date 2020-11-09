@@ -14,10 +14,6 @@ class Register extends React.Component {
     passwordConfirm = null;
     
     addUser(event) {
-	console.log('does this happen at all?')
-	if (this.password !== this.passwordConfirm) {
-	    return null;
-	}
 	const data = JSON.stringify({
 	    username: this.name,
 	    password: this.password,
@@ -26,11 +22,11 @@ class Register extends React.Component {
 	})
 	const options = {
 	    hostname: 'localhost',
-	    port: 3000,
-	    path: '/',
+	    port: 5000,
+	    path: '/api/users/',
 	    method: 'POST',
 	    headers: {
-		'Content-Type': 'application/json',
+		'Content-Type': 'x-www-form-urlencoded',
 		'Content-Length': data.length
 	    }
 	}
