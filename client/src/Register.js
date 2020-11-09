@@ -4,16 +4,20 @@ import './Register.css'
 import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import https from 'https'
-
-
+import querystring from 'querystring'
+import request from 'request'
 
 class Register extends React.Component {
     name = null;
     email = null;
     password = null;
     passwordConfirm = null;
+
+
+
+
     
-    addUser(event) {
+    handleSubmit(event) {
 	const data = JSON.stringify({
 	    username: this.name,
 	    password: this.password,
@@ -21,15 +25,22 @@ class Register extends React.Component {
 	    registrationDate: Date.now()
 	})
 	const options = {
-	    hostname: 'localhost',
+	    hostname: 'localhost/api/users',
 	    port: 5000,
-	    path: '/api/users/',
 	    method: 'POST',
 	    headers: {
-		'Content-Type': 'x-www-form-urlencoded',
+		'Content-Type': 'application/json',
 		'Content-Length': data.length
-	    }
+	    },
+	    form: data
 	}
+	request(options, (err, res, body) => {
+	    if (err)
+		throw err
+	    console.log(body)
+	})
+	    
+	/*
 	const request = https.request(options, res => {
 	    console.log('status: ${res.statusCode}')
 	    res.on('data', d => {
@@ -41,7 +52,7 @@ class Register extends React.Component {
 	})
 	request.write(data)
 	request.end()
-
+	*/
     }
     render() {
 	return (	    
@@ -59,11 +70,11 @@ class Register extends React.Component {
       <br/>
       <br/>
 		<div>
-		<form onSubmit={this.addUser}>
-		<input type="text" value={this.email} id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
-		<input type="text" value={this.name} id="Username" name="Username" placeholder="Username"/><br/>
-		<input type="password" value={this.password} id="Password" name="Password" placeholder="Password"/><br/>
-		<input type="password" value={this.passwordConfirm} id="Password" name="Password" placeholder="Re-enter password"/><br/>
+		<form onSubmit={this.handleSubmit}>
+		<input type="text" value={this.email} onChange={event => this.email = event.target.value} id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
+		<input type="text" value={this.name} onChange={event => this.name = event.target.value} id="Username" name="Username" placeholder="Username"/><br/>
+		<input type="password" value={this.password} onChange={event => this.name = event.target.value} id="Password" name="Password" placeholder="Password"/><br/>
+		<input type="password" value={this.passwordConfirm} onChange={event => this.passwordConfirm = event.target.value} id="Password" name="Password" placeholder="Re-enter password"/><br/>
 		<input type="submit" value="Register" class="button" width="100%"/>
 		</form>
 		</div>
