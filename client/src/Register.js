@@ -2,10 +2,51 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './Register.css'
 import './green4lyfe.css'
-import VideoImage from './video-generic-ss-1920.png'
 import Logo from './LOGO-Black-Scrumbags.png'
+import https from 'https'
+
+
 
 class Register extends React.Component {
+    name = null;
+    email = null;
+    password = null;
+    passwordConfirm = null;
+    
+    addUser(event) {
+	console.log('does this happen at all?')
+	if (this.password !== this.passwordConfirm) {
+	    return null;
+	}
+	const data = JSON.stringify({
+	    username: this.name,
+	    password: this.password,
+	    firstName: this.email,
+	    registrationDate: Date.now()
+	})
+	const options = {
+	    hostname: 'localhost',
+	    port: 3000,
+	    path: '/',
+	    method: 'POST',
+	    headers: {
+		'Content-Type': 'application/json',
+		'Content-Length': data.length
+	    }
+	}
+	const request = https.request(options, res => {
+	    console.log('status: ${res.statusCode}')
+	    res.on('data', d => {
+		process.stdout.write(d)
+	    })
+	})
+	request.on('error', error => {
+	    console.error(error)
+	})
+	request.write(data)
+	request.end()
+
+    }
     render() {
 	return (	    
   <div>
@@ -21,13 +62,15 @@ class Register extends React.Component {
 	<br/>of our website!</b>
       <br/>
       <br/>
-      <div>
-	  <input type="text" id="Username" name="Username" placeholder="Username"/><br/>
-	  <input type="text" id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
-	  <input type="password" id="Password" name="Password" placeholder="Password"/><br/>
-  	  <input type="password" id="Password" name="Password" placeholder="Re-enter Password"/><br/>
-	  <input type="submit" value="Register" class="button" width="100%"/>
-      </div>
+		<div>
+		<form onSubmit={this.addUser}>
+		<input type="text" value={this.email} id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
+		<input type="text" value={this.name} id="Username" name="Username" placeholder="Username"/><br/>
+		<input type="password" value={this.password} id="Password" name="Password" placeholder="Password"/><br/>
+		<input type="password" value={this.passwordConfirm} id="Password" name="Password" placeholder="Re-enter password"/><br/>
+		<input type="submit" value="Register" class="button" width="100%"/>
+		</form>
+		</div>
     </div>
     <div>
       

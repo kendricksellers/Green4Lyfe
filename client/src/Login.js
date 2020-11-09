@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import mongoose from 'mongoose'
 import './Login.css'
 import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
