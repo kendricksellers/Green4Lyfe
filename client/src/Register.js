@@ -32,8 +32,8 @@ class Register extends React.Component {
 			port: 5000,
 			method: 'POST',
 			headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-			'Content-Length': data.length
+			    'Content-Type': 'application/x-www-form-urlencoded',
+			    'Content-Length': data.length
 			}
 		}
 		/*request(options, (err, res, body) => {
