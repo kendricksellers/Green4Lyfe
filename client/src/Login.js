@@ -27,7 +27,7 @@ class Login extends React.Component {
 	    username: this.username,
 	    password: this.password
 	});
-	axios.get('http://localhost:5000/api/users/login', querystring.stringify(data))
+	axios.get('http://localhost:5000/api/users/login', data)
 		  .then(response => {
 		      if (response.data)
 			  this.setState({isAuthenticated: true})
