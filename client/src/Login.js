@@ -29,10 +29,7 @@ class Login extends React.Component {
 		'Content-Type': 'application/x-www-form-urlencoded',
 		'Content-Length': data.length
 	    },
-	    body: {
-		username: this.username,
-		password: this.password
-	    }
+	    form: querystring.stringify(data)
 	}
 	const request = http.request(options, res => {
 	    console.log('status: ${res.statusCode}')
@@ -43,7 +40,7 @@ class Login extends React.Component {
 	request.on('error', error => {
 	    console.error(error)
 	})
-	request.write(querystring.stringify(data))
+	//request.write(querystring.stringify(data))
 	request.end()
     }
 
