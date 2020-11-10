@@ -1,10 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import querystring from 'querystring'
+import http from 'http'
 import './Login.css'
 import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 
 class Login extends React.Component {
+    username = null;
+    password = null;
+    constructor() {
+	super();
+	this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+	event.preventDefault();
+	const data = {
+	    username: this.username,
+	    password: this.password
+	};
+	const options = {
+	    hostname: 'localhost',
+	    path: '/api/users/login',
+	    port: 5000,
+	    method: 'GET',
+	    headers: {
+		'Content-Type': 'application/x-www-form-urlencoded',
+		'Content-Length': data.length
+	    },
+	    body: {
+		username: this.username,
+		password: this.password
+	    }
+	}
+	const request = http.request(options, res => {
+	    console.log('status: ${res.statusCode}')
+	    res.on('data', d => {
+		console.log(d);
+	    })
+	})
+	request.on('error', error => {
+	    console.error(error)
+	})
+	request.write(querystring.stringify(data))
+	request.end()
+    }
 
     render() {
 	return (
@@ -15,10 +56,12 @@ class Login extends React.Component {
 
     <div className="login">
       <h1>Log In</h1>
-      <div>
-	  <input type="text" id="Username" name="Username" placeholder="Username" /><br/>
-	  <input type="password" id="Password" name="Password" placeholder="Password" /><br/>
-	  <input type="submit" value="Log in" class="button" width="100%" /><br/>
+		<div>
+		<form onSubmit={this.handleSubmit}>
+		<input type="text" onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/>
+		<input type="password" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/>
+		<input type="submit" value="Log in" class="button" width="100%" /><br/>
+		</form>
 	Forgot password?
       </div>
     </div>
