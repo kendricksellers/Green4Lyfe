@@ -12,7 +12,7 @@ class Login extends React.Component {
     password = null;
     constructor() {
 	super();
-	this.state = {isAuthenticated: false, username: ''};
+	this.state = {authenticationFailure: false, username: ''};
 	this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -24,11 +24,10 @@ class Login extends React.Component {
 	});
 	axios.post('http://localhost:5000/api/users/login', data)
 		  .then(response => {
-		      if (!response.data.err) {
-			  this.setState({isAuthenticated: true})
-			  this.setState({username: this.username})
-		      } else
-			  this.setState({isAuthenticated: false})
+		      if (response.data.error)
+			  this.setState({authenticationFailure: true})
+		      else
+			  this.setState({authenticationFailure: false})
 		  })
     }
 
@@ -41,7 +40,7 @@ class Login extends React.Component {
 
 		<div className="login">
 		
-		{ this.state.isAuthenticated && <div>Logged in as {this.username}<br/></div> }
+		{ this.state.authenticationFailure && <div>Username or password is incorrect<br/></div> }
 		<h1>Log In</h1>
 		<div>
 		<form onSubmit={this.handleSubmit}>
