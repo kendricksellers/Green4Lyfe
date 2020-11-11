@@ -7,17 +7,12 @@ import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import axios from 'axios'
 
-function Authenticated(props) {
-    return <div>Successfully logged in as {props.username} </div>
-}
-	      
-
 class Login extends React.Component {
     username = null;
     password = null;
     constructor() {
 	super();
-	this.state = {isAuthenticated: true};
+	this.state = {isAuthenticated: false, username: ''};
 	this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -27,10 +22,13 @@ class Login extends React.Component {
 	    username: this.username,
 	    password: this.password
 	});
-	axios.get('http://localhost:5000/api/users/login', data)
+	axios.post('http://localhost:5000/api/users/login', data)
 		  .then(response => {
-		      if (response.data)
+		      if (response.data) {
 			  this.setState({isAuthenticated: true})
+			  this.setState({username: this.username})
+		      } else
+			  this.setState({isAuthenticated: false})
 		  })
     }
 
@@ -50,13 +48,11 @@ class Login extends React.Component {
 		<input type="password" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/>
 		<input type="submit" value="Log in" class="button" width="100%" /><br/>
 		</form>
+		{ this.state.isAuthenticated && <div>Logged in as {this.username}</div> }
 		Forgot password?
-		{ () => { if (this.state.isAuthenticated) return <Authenticated authenticated={this.authenticated} username={this.username}/> } }
-		</div>
+		  </div>
     </div>
-    <div>
       
-    </div>
     </div>
 	    
 	);
