@@ -24,7 +24,7 @@ class Login extends React.Component {
 	});
 	axios.post('http://localhost:5000/api/users/login', data)
 		  .then(response => {
-		      if (response.data) {
+		      if (!response.data.err) {
 			  this.setState({isAuthenticated: true})
 			  this.setState({username: this.username})
 		      } else
@@ -41,6 +41,7 @@ class Login extends React.Component {
 
 		<div className="login">
 		
+		{ this.state.isAuthenticated && <div>Logged in as {this.username}<br/></div> }
 		<h1>Log In</h1>
 		<div>
 		<form onSubmit={this.handleSubmit}>
@@ -48,8 +49,7 @@ class Login extends React.Component {
 		<input type="password" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/>
 		<input type="submit" value="Log in" class="button" width="100%" /><br/>
 		</form>
-		{ this.state.isAuthenticated && <div>Logged in as {this.username}</div> }
-		Forgot password?
+		<br/>Forgot password?
 		  </div>
     </div>
       
