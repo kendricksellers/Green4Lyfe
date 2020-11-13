@@ -11,49 +11,51 @@ class Register extends React.Component {
     name = null;
     email = null;
     password = null;
-	passwordConfirm = null;
-	
-	constructor() {
-		super();
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+    passwordConfirm = null;
+    
+    constructor() {
+	super();
+	this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
     handleSubmit(event) {
-		event.preventDefault();
-		const data = {
-			username: this.name,
-			password: this.password,
-			email: this.email,
-			registrationDate: Date.now()
-		}
-		const options = {
-			hostname: 'localhost',
-			path: '/api/users/',
-			port: 5000,
-			method: 'POST',
-			headers: {
-			    'Content-Type': 'application/x-www-form-urlencoded',
-			    'Content-Length': data.length
-			}
-		}
-		/*request(options, (err, res, body) => {
-			if (err)
-			throw err
-			console.log(body)
-		})*/
-	    
+	event.preventDefault();
+	const data = {
+	    username: this.name,
+	    password: this.password,
+	    email: this.email,
+	    registrationDate: Date.now()
+	}
+	const options = {
+	    hostname: 'localhost',
+	    path: '/api/users/',
+	    port: 5000,
+	    method: 'POST',
+	    headers: {
+		'Content-Type': 'application/x-www-form-urlencoded',
+		'Content-Length': data.length
+	    }
+	}
+	/*request(options, (err, res, body) => {
+	  if (err)
+	  throw err
+	  console.log(body)
+	  })*/
 	
-		const request = http.request(options, res => {
-			console.log('status: ${res.statusCode}')
-			res.on('data', d => {
-				console.log(d);
-			})
-		})
-		request.on('error', error => {
-			console.error(error)
-		})
-		request.write(querystring.stringify(data))
-		request.end()
+	
+	const request = http.request(options, res => {
+	    console.log('status: ${res.statusCode}')
+	    res.on('data', d => {
+		console.log(d);
+	    })
+	})
+	request.on('error', error => {
+	    console.error(error)
+	})
+	request.write(querystring.stringify(data))
+	request.end()
+	window.location.replace('http://localhost:3000/userhome')
+
     }
     render() {
 	return (	    

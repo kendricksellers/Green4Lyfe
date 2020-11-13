@@ -26,8 +26,9 @@ class Login extends React.Component {
 		  .then(response => {
 		      if (response.data.error)
 			  this.setState({authenticationFailure: true})
-		      else
-			  this.setState({authenticationFailure: false})
+		      else {
+			  window.location.replace('http://localhost:3000/userhome')
+		      }
 		  })
     }
 
