@@ -6,7 +6,7 @@
 }
 input[type=text] {
     display: block;
-    width: 100%;
+    width: 400px;
     height: 30px;
 }
 .lifestyle_Side {
@@ -15,10 +15,28 @@ input[type=text] {
     left: 0%;
     font-size: 12px;
 }
-.lifestyle_Main {
+.lifestyle_Main_Title {
     position: absolute;
-    top: 38%;
+    top: 20%;
+    left: 60%;
+    font-size: 18px;
+    text-align: right;
+}
+.lifestyle_Main_Blurb {
+    position: absolute;
+    top: 25%;
     left: 30%;
     font-size: 18px;
-    text-align: center;
+    text-align: left;
 }
+.lifestyle_Main_Extra {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    font-size: 18px;
+    text-align: left;
+}
+
+div {
+    white-space: pre-wrap;
+  }

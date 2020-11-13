@@ -14,6 +14,7 @@ ReactDOM.render(
 	<Route path='/login' component={Login} />
 	<Route path='/register' component={Register} />
 	<Route path='/wiki' component={Wiki} />
+	<Wiki />
 	</Switch>
 	</BrowserRouter>,
     rootElement
