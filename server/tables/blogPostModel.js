@@ -5,7 +5,15 @@ const blogPostSchema = new mongoose.Schema({
     username: { type: String, required: true },
     date: { type: Date, default: Date.now() },
     title: { type: String, required: true },
-    content: { type: String, required: true }
+    content: { type: String, required: true },
+    comments: [
+        {
+            commentID: { type: String, required: true },
+            username: { type: String, required: true },
+            date: { type: Date, default: Date.now() },
+            content: { type: String, required: true }
+        }
+    ]
 });
 
 export default mongoose.model('posts', blogPostSchema);

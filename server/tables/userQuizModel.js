@@ -7,7 +7,8 @@ const userQuizModelSchema = new mongoose.Schema({
             questionID: { type: Number, required: true },
             answer: { type: String, required: true }
         }
-    ]
+    ],
+    lifestyle: { type: String }
 });
 
 export default mongoose.model('quizResults', userQuizModelSchema);
