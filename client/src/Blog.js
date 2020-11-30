@@ -12,7 +12,6 @@ import Face5 from './face5.jpg'
 import TinyHouse from './tinyhouse.jpg'
 
 class Blog extends React.Component {
-    
     render() {
 	return (
 	    <div>
@@ -65,4 +64,3 @@ class Blog extends React.Component {
 }
 
 export default Blog;
-

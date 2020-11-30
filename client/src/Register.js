@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './Register.css'
-import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import http from 'http'
 import querystring from 'querystring'
 import request from 'request'
+import 'semantic-ui-css/semantic.min.css'
+import { Input } from 'semantic-ui-react'
+import './green4lyfe.css'
 
 class Register extends React.Component {
     name = null;
@@ -15,11 +17,47 @@ class Register extends React.Component {
     
     constructor() {
 	super();
+	this.state = {password_empty: false, username_empty: false, email_empty: false, confirm_password_empty: false, password_match: true}
 	this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
 	event.preventDefault();
+	var failed = false;
+	this.setState({email_empty: false});
+	this.setState({username_empty: false});
+	this.setState({password_empty: false});
+	this.setState({confirm_password_empty: false});
+	this.setState({password_match: true});
+
+	if (this.email == null || this.email === "") {
+	    this.setState({email_empty: true});
+	    failed = true;
+	}
+	if (this.name == null || this.name === "") {
+	    this.setState({username_empty: true});
+	    failed = true;
+	}
+	if (this.password == null || this.password === "") {
+	    this.setState({password_empty: true});
+	    failed = true;
+	}
+	if (this.passwordConfirm == null || this.passwordConfirm === "") {
+	    this.setState({confirm_password_empty: true});
+	    failed = true;
+	}
+
+	if (failed)
+	    return;
+
+	if (this.password !== this.passwordConfirm) {
+	    this.setState({password_match: false})
+	    failed = true;
+	}
+	    
+	if (failed)
+	    return;
+
 	const data = {
 	    username: this.name,
 	    password: this.password,
@@ -36,12 +74,6 @@ class Register extends React.Component {
 		'Content-Length': data.length
 	    }
 	}
-	/*request(options, (err, res, body) => {
-	  if (err)
-	  throw err
-	  console.log(body)
-	  })*/
-	
 	
 	const request = http.request(options, res => {
 	    console.log('status: ${res.statusCode}')
@@ -59,39 +91,46 @@ class Register extends React.Component {
     }
     render() {
 	return (	    
-  <div>
-      <Link to='/'>
+		<div>
+		<Link to='/'>
 		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
-      </Link>
+		</Link>
+		<div className="ui segment register" style={{width: "35%", top: "20%"}}>
+		<b>Thank you for taking our quiz!</b><br/>
+		<br/>
+		<b>Register for an account to save and access<br/>
+		<br/>your quiz results and other features<br/>
+		<br/>of our website!</b>
+		<br/>
+		<br/>
+		<div>
+		{ this.state.email_empty && <b>Email field is empty<br/></b> }
+	    { this.state.username_empty && <b>Username field is empty<br/></b> }
+	    { this.state.password_empty && <b>Password field is empty<br/></b> }
+	    { this.state.confirm_password_empty && <b>Password Confirmation field is empty<br/></b> }
+	    { !this.state.password_match && <b>Passwords dont match<br/></b> }
 
-    <div class="register">
-      <b>Thank you for taking our quiz!</b>
-      <br/>
-      <b>Register for an account to save and access
-	<br/>your quiz results and other features
-	<br/>of our website!</b>
-      <br/>
-      <br/>
+	    </div>
 		<div>
 		<form onSubmit={this.handleSubmit}>
-		<input type="text" value={this.email} onChange={event => this.email = event.target.value} id="E-mail" name="E-mail" placeholder="E-mail"/><br/>
-		<input type="text" value={this.name} onChange={event => this.name = event.target.value} id="Username" name="Username" placeholder="Username"/><br/>
-		<input type="password" value={this.password} onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password"/><br/>
-		<input type="password" value={this.passwordConfirm} onChange={event => this.passwordConfirm = event.target.value} id="Password" name="Password" placeholder="Re-enter password"/><br/>
-		<input type="submit" value="Register" class="button" width="100%"/>
+		<Input type="text" onChange={event => this.email = event.target.value} id="E-mail" name="E-mail" placeholder="E-mail"/><br/><br/>
+		<Input type="text" onChange={event => this.name = event.target.value} id="Username" name="Username" placeholder="Username"/><br/><br/>
+		<Input type="password" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password"/><br/><br/>
+		<Input type="password" onChange={event => this.passwordConfirm = event.target.value} id="Password" name="Password" placeholder="Re-enter password"/><br/><br/>
+		<Input type="submit" class="button" width="100%"/>
 		</form>
 		</div>
-    </div>
-    <div>
-      
-    </div>
-    
-
-
-  </div>
-
-
-
+		</div>
+		<div>
+		
+	    </div>
+		
+	    
+	    
+	    </div>
+		
+	    
+	    
 	);
     }
 }

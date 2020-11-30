@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import ProfilePicture from './face.jpg'
 import './Results.css'
 import ResultImage from './foraging.webp'
+import 'semantic-ui-css/semantic.min.css'
+import './green4lyfe.css'
 
 class Results extends React.Component {
 
@@ -19,13 +20,11 @@ class Results extends React.Component {
 		<br/>
 		Profile Picture
 	      </div>
-	      <div className="dropdown" style={{position: "absolute", left: "48%", top: "15%"}}>
-		<span>Past results</span>
-		<div className="dropdown-content">
-		  <p>Oct 30th, 2020</p>
-		  <p>Nov 10th, 2020</p>
-		</div>
-	      </div>
+	      <select className="ui dropdown" style={{position: "absolute", left: "48%", top: "15%"}}>
+		<option>Past results</option>
+		<option>Oct 30th, 2020</option>
+		<option>Nov 10th, 2020</option>
+	      </select>
 	      <div style={{textAlign: "center", position: "absolute", height: "60%", width: "60%", left: "21%", top: "30%"}}>
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
@@ -33,11 +32,11 @@ class Results extends React.Component {
 		  You seem to be into <b>Foraging</b>!
 		</div>
 	      </div>
-	      <button className="button" style={{position: "absolute", left: "46%", top: "60%"}}>
+	      <button className="ui button" style={{position: "absolute", left: "46%", top: "60%"}}>
 		Retake quiz
 	      </button>
 		
-	      <div className="sidebar" style={{position: "absolute", top: "45%", right: "5%"}}>
+	      <div className="ui segment sidebar" style={{position: "absolute", top: "45%", right: "5%"}}>
 		YOUR NAME HERE<br/>
 		ACCOUNT INFORMATION<br/>
 		<Link to="/userblog">Your Blog</Link><br/>

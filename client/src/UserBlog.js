@@ -23,8 +23,8 @@ class UserBlog extends React.Component {
 		<textarea name="Post box" rows="24" cols="44"/>
 		<br/>
 		<div style={{textAlign: "center"}}>
-		  <button className="button">Post</button>
-		  <button className="button">Upload Image</button>
+		  <button className="button ui">Post</button>
+		  <button className="button ui">Upload Image</button>
 		</div>
 	      </div>
 	      <div style={{position: "absolute", left: "32%", top: "10%", backgroundColor: "#ffffff", height: "18%", width: "65%"}}>

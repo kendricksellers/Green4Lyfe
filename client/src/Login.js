@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import querystring from 'querystring'
 import http from 'http'
-import './Login.css'
-import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import axios from 'axios'
+
+import 'semantic-ui-css/semantic.min.css'
+import { Button } from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
 
 class Login extends React.Component {
     username = null;
@@ -34,27 +36,25 @@ class Login extends React.Component {
 
     render() {
 	return (
-   <div>
-      <Link to='/'>
+	    <div>
+	      <Link to='/'>
 		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
-      </Link>
+	      </Link>
 
-		<div className="login">
-		
+		<div className="ui segment login" style={{width: "20%"}}>
 		{ this.state.authenticationFailure && <div>Username or password is incorrect<br/></div> }
+		<br/>
 		<h1>Log In</h1>
 		<div>
-		<form onSubmit={this.handleSubmit}>
-		<input type="text" onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/>
-		<input type="password" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/>
-		<input type="submit" value="Log in" class="button" width="100%" /><br/>
-		</form>
-		<br/>Forgot password?
-		  </div>
-    </div>
-      
-    </div>
-	    
+		  <form onSubmit={this.handleSubmit}>
+		    <Input type="text" class="ui input" style={{width: "80%"}} onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/><br/>
+		      <Input type="password" class="ui input" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/><br/>
+			<Input type="submit" className="ui button" value="Log in" width="100%" /><br/>
+		  </form>
+		  <br/>Forgot password?
+		</div>
+	      </div>
+	    </div>
 	);
     }
 }

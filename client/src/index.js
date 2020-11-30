@@ -11,6 +11,7 @@ import UserBlog from './UserBlog';
 import Blog from './Blog';
 import Calculator from './Calculator';
 import Results from './Results';
+import ResultsNoAccount from './ResultsNoAccount';
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -26,6 +27,7 @@ ReactDOM.render(
 	  <Route path='/userblog' component={UserBlog} />
 	  <Route path='/calculator' component={Calculator} />
 	  <Route path='/results' component={Results} />
+	  <Route path='/resultsnoaccount' component={ResultsNoAccount} />
 	</Switch>
       </BrowserRouter>,
     rootElement
