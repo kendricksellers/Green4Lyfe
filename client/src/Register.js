@@ -17,7 +17,15 @@ class Register extends React.Component {
     
     constructor() {
 	super();
-	this.state = {password_empty: false, username_empty: false, email_empty: false, confirm_password_empty: false, password_match: true}
+	this.state = {
+	    password_empty: false,
+	    username_empty: false,
+	    email_empty: false,
+	    confirm_password_empty: false,
+	    password_match: true,
+	    user_already_exists: false
+	};
+	
 	this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -29,6 +37,7 @@ class Register extends React.Component {
 	this.setState({password_empty: false});
 	this.setState({confirm_password_empty: false});
 	this.setState({password_match: true});
+	this.setState({user_already_exists: false});
 
 	if (this.email == null || this.email === "") {
 	    this.setState({email_empty: true});
@@ -82,7 +91,8 @@ class Register extends React.Component {
 	    })
 	})
 	request.on('error', error => {
-	    console.error(error)
+	    if (error.code === 11000)
+		this.setState({user_already_exists_error: true});
 	})
 	request.write(querystring.stringify(data))
 	request.end()
@@ -109,6 +119,7 @@ class Register extends React.Component {
 	    { this.state.password_empty && <b>Password field is empty<br/></b> }
 	    { this.state.confirm_password_empty && <b>Password Confirmation field is empty<br/></b> }
 	    { !this.state.password_match && <b>Passwords dont match<br/></b> }
+	    { this.state.user_already_exists && <b>Username already taken<br/></b> }
 
 	    </div>
 		<div>

@@ -29,6 +29,9 @@ class Login extends React.Component {
 		      if (response.data.error)
 			  this.setState({authenticationFailure: true})
 		      else {
+			  var date = new Date();
+			  date.setTime(date.getTime() + (60 * 60 * 1000));
+			  document.cookie = "username=" + this.username + "; expires=" + date.toUTCString() + ";";
 			  window.location.replace('http://localhost:3000/userhome')
 		      }
 		  })
@@ -47,8 +50,8 @@ class Login extends React.Component {
 		<h1>Log In</h1>
 		<div>
 		  <form onSubmit={this.handleSubmit}>
-		    <Input type="text" class="ui input" style={{width: "80%"}} onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/><br/>
-		      <Input type="password" class="ui input" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/><br/>
+		    <Input type="text" className="ui input" style={{width: "80%"}} onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/><br/>
+		      <Input type="password" className="ui input" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/><br/>
 			<Input type="submit" className="ui button" value="Log in" width="100%" /><br/>
 		  </form>
 		  <br/>Forgot password?

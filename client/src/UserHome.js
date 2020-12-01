@@ -6,8 +6,16 @@ import Logo from './LOGO-Black-Scrumbags.png'
 import ProfilePicture from './face.jpg'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
+import { getCookie } from './cookie.js'
 
 class UserHome extends React.Component {
+
+    getUsername() {
+	var username = getCookie("username");
+	if (username == null)
+	    return <Link to="/login">Click to log in</Link>
+	return username;
+    }
 
     render() {
 	return (
@@ -29,7 +37,7 @@ class UserHome extends React.Component {
 	      <div className="ui segment" style={{position: "absolute", top: "5%", right: "5%"}}>
 		<img src={ProfilePicture} style={{height: "75px", width: "75px"}}/>
 		<br/>
-		PROFILE NAME
+		You: <b>{ this.getUsername() }</b>
 	      </div>
 	      
 	      <div className="ui segment box" style={{position: "absolute", left: "25%", top: "50%"}}>
@@ -45,8 +53,6 @@ class UserHome extends React.Component {
 	      </div>
 
 	      <div className="ui segment" style={{position: "absolute", top: "45%", right: "5%"}}>
-		YOUR NAME HERE<br/>
-		ACCOUNT INFORMATION<br/>
 		<Link to="/userblog">Your Blog</Link><br/>
 		<Link to="/results">Results</Link><br/>
 		<Link to="/login">Log Out</Link><br/>
