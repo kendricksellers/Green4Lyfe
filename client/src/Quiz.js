@@ -4,6 +4,8 @@ import './Login.css'
 import './green4lyfe.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import ExampleQuestion from './ExQuestionImg.png'
+import 'semantic-ui-css/semantic.min.css'
+import { Button } from 'semantic-ui-react'
 
 class Quiz extends React.Component {
 
@@ -18,8 +20,8 @@ class Quiz extends React.Component {
 		  <img src={ExampleQuestion} style={{height: "70%", width: "70%"}}/>
 		</Link>
 		<br/>
-		<button className="button" style={{left: "26%"}}>prev</button>
-		<button className="button" style={{left: "26%"}}>next</button>
+		<Button className="button" style={{left: "26%"}}>prev</Button>
+		<Button className="button" style={{left: "26%"}}>next</Button>
 	      </div>
 	    </div>
 	);
