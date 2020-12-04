@@ -50,9 +50,11 @@ class Login extends React.Component {
 		<h1>Log In</h1>
 		<div>
 		  <form onSubmit={this.handleSubmit}>
-		    <Input type="text" className="ui input" style={{width: "80%"}} onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/><br/>
-		      <Input type="password" className="ui input" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/><br/>
-			<Input type="submit" className="ui button" value="Log in" width="100%" /><br/>
+		    <Input type="text" className="ui input" style={{width: "100%"}} onChange={event => this.username = event.target.value} id="Username" name="Username" placeholder="Username" /><br/><br/>
+		      <Input type="password" className="ui input" style={{width: "100%"}} onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password" /><br/><br/>
+			<Button type="submit" className="ui button" style={{width: "100%"}} value="Log in">
+			  Submit
+			</Button><br/>
 		  </form>
 		  <br/>Forgot password?
 		</div>

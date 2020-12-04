@@ -7,6 +7,7 @@ import querystring from 'querystring'
 import request from 'request'
 import 'semantic-ui-css/semantic.min.css'
 import { Input } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import './green4lyfe.css'
 
 class Register extends React.Component {
@@ -28,7 +29,7 @@ class Register extends React.Component {
 	
 	this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     handleSubmit(event) {
 	event.preventDefault();
 	var failed = false;
@@ -38,7 +39,7 @@ class Register extends React.Component {
 	this.setState({confirm_password_empty: false});
 	this.setState({password_match: true});
 	this.setState({user_already_exists: false});
-
+	
 	if (this.email == null || this.email === "") {
 	    this.setState({email_empty: true});
 	    failed = true;
@@ -55,18 +56,18 @@ class Register extends React.Component {
 	    this.setState({confirm_password_empty: true});
 	    failed = true;
 	}
-
+	
 	if (failed)
 	    return;
-
+	
 	if (this.password !== this.passwordConfirm) {
 	    this.setState({password_match: false})
 	    failed = true;
 	}
-	    
+	
 	if (failed)
 	    return;
-
+	
 	const data = {
 	    username: this.name,
 	    password: this.password,
@@ -97,7 +98,7 @@ class Register extends React.Component {
 	request.write(querystring.stringify(data))
 	request.end()
 	window.location.replace('http://localhost:3000/userhome')
-
+	
     }
     render() {
 	return (	    
@@ -120,28 +121,21 @@ class Register extends React.Component {
 	    { this.state.confirm_password_empty && <b>Password Confirmation field is empty<br/></b> }
 	    { !this.state.password_match && <b>Passwords dont match<br/></b> }
 	    { this.state.user_already_exists && <b>Username already taken<br/></b> }
-
+	    
 	    </div>
 		<div>
 		<form onSubmit={this.handleSubmit}>
-		<Input type="text" onChange={event => this.email = event.target.value} id="E-mail" name="E-mail" placeholder="E-mail"/><br/><br/>
-		<Input type="text" onChange={event => this.name = event.target.value} id="Username" name="Username" placeholder="Username"/><br/><br/>
-		<Input type="password" onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password"/><br/><br/>
-		<Input type="password" onChange={event => this.passwordConfirm = event.target.value} id="Password" name="Password" placeholder="Re-enter password"/><br/><br/>
-		<Input type="submit" class="button" width="100%"/>
+		<Input type="text" className="ui input" style={{width: "100%"}} onChange={event => this.email = event.target.value} id="E-mail" name="E-mail" placeholder="E-mail"/><br/><br/>
+		<Input type="text" className="ui input" style={{width: "100%"}} onChange={event => this.name = event.target.value} id="Username" name="Username" placeholder="Username"/><br/><br/>
+		<Input type="password" className="ui input password" style={{width: "100%"}} onChange={event => this.password = event.target.value} id="Password" name="Password" placeholder="Password"/><br/><br/>
+		<Input type="password" className="ui input password" style={{width: "100%"}} onChange={event => this.passwordConfirm = event.target.value} id="Password" name="Password" placeholder="Re-enter password"/><br/><br/>
+		<Button type="submit" style={{width: "100%"}} className="button">Register</Button>
 		</form>
 		</div>
 		</div>
 		<div>
-		
-	    </div>
-		
-	    
-	    
-	    </div>
-		
-	    
-	    
+		</div>
+		</div>
 	);
     }
 }
