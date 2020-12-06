@@ -9,6 +9,10 @@ import Quiz from './Quiz';
 import UserHome from './UserHome';
 import UserBlog from './UserBlog';
 import Blog from './Blog';
+import Posts from './Posts/Posts';
+import CreatePost from './Posts/CreatePost/CreatePost';
+import SinglePost from './Posts/SinglePost/SinglePost';
+import ShowPost from './Posts/ShowPost/ShowPost';
 import Calculator from './Calculator';
 import Results from './Results';
 import ResultsNoAccount from './ResultsNoAccount';
@@ -23,6 +27,10 @@ ReactDOM.render(
 	  <Route path='/wiki' component={Wiki} />
 	  <Route path='/quiz' component={Quiz} />
 	  <Route path='/userhome' component={UserHome} />
+	  <Route path='/Posts/Posts' component={Posts} />
+	  <Route path='/Posts/CreatePost/CreatePost' component={CreatePost} />
+	  <Route path='/Posts/SinglePost/SinglePost' component={SinglePost} />
+	  <Route path='/Posts/ShowPost/ShowPost' component={ShowPost} />
 	  <Route path='/blog' component={Blog} />
 	  <Route path='/userblog' component={UserBlog} />
 	  <Route path='/calculator' component={Calculator} />
