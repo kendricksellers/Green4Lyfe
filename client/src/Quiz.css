@@ -1,0 +1,17 @@
+.answer-image {
+    width: 150px;
+    height: 150px;
+}
+.answer-a {
+}
+.answer-b {
+    bottom: 100%;
+    right: 100%;
+}
+.answer-c {
+    top: 100%;
+}
+.answer-d {
+    top: 100%;
+    left: 100%;
+}
