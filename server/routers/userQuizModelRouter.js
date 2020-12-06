@@ -5,6 +5,7 @@ const userQuizRouter = express.Router();
 // /api/quizzes
 userQuizRouter.post('/', userQuizController.create);
 userQuizRouter.get('/:username', userQuizController.getUserQuiz);
+userQuizRouter.get('/:username/lifestyle', userQuizController.getUserLifestyle)
 userQuizRouter.put('/:username', userQuizController.updateUserQuiz);
 
 export default userQuizRouter;
