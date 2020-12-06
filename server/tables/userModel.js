@@ -9,6 +9,5 @@ const userModelSchema = new mongoose.Schema({
     registrationDate: { type: Date, required: true},
     accessLevel: { type: Number, default: 0 }
 });
-//include access level
 
 export default mongoose.model('users', userModelSchema);
