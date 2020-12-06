@@ -20,9 +20,15 @@ export const getPost = async (req, res) => {
     });
 }
 
-export const getAllPosts = async (req, res) => {
+export const getAllPostsByUsername = async (req, res) => {
     const username = req.params.username;
     await dbController.findByQuery(BlogPost, { username: username }, res).then(posts => {
+        res.json(posts);
+    });
+}
+
+export const getAllPosts = async (req, res) => {
+    await dbController.findAll(BlogPost, res).then(posts => {
         res.json(posts);
     });
 }
