@@ -16,19 +16,16 @@ class QuizQuestion12 extends React.Component {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	if (answer === "B")
+	    window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	else
+	    window.location.replace('http://localhost:3000/quiz/question' + "15")
     }
     answeredA = () => {
 	this.answered("A");
     }
     answeredB = () => {
 	this.answered("B");
-    }
-    answeredC = () => {
-	this.answered("C");
-    }
-    answeredD = () => {
-	this.answered("D");
     }
 
     render() {
@@ -39,27 +36,17 @@ class QuizQuestion12 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. How much family do you live with?
+		  { currQuestion }. Would you be willing to move (locally or long distance) if it made a positive impact on the environment?
 		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
-		  A. Just the spouse.
+		  A. For sure
 		</div>
 		<div className="answer-b" onClick={this.answeredB}>
 		  <br/>
-		  B. 1 - 2 kids
+		  B. No way
 		</div>
-		<br/>
-		<div className="answer-c" onClick={this.answeredC}>
-		  <br/>
-		  C. 3 - 4 kids
-		</div>
-		<div className="answer-d" onClick={this.answeredD}>
-		  <br/>
-		  D. 5+ kids
-		</div>
-
 	      </div>
 	      <div style={{position: "absolute", top: "90%", left: "42%"}}>
 		<Link to={"/quiz/question" + prevQuestion}>
