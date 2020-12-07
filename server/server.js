@@ -7,6 +7,10 @@ import blogPostRouter from './routers/blogPostModelRouter.js';
 import express from 'express';
 const app = express();
 
+//Added two lines below because CORS was blocking requests on my machine - Sam
+//var cors = require('cors')
+//app.use(cors())
+
 //connect to database
 const db = connectToDatabase().on(
     "error",
