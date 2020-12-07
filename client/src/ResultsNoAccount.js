@@ -32,7 +32,7 @@ class ResultsNoAccount extends React.Component {
 		  You seem to be into <b>Foraging</b>!
 		</div>
 	      </div>
-	      <Link to="/quiz">
+	      <Link to="/quiz/question1">
 		<Button className="button" style={{position: "absolute", left: "46%", top: "60%"}}>
 		  Retake quiz
 		</Button>

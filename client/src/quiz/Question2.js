@@ -57,10 +57,10 @@ class QuizQuestion2 extends React.Component {
 
 	      </div>
 	      <div style={{position: "absolute", top: "90%", left: "42%"}}>
-		<Link to={"/quizquestion" + prevQuestion}>
+		<Link to={"/quiz/question" + prevQuestion}>
 		  <Button className="button" style={{left: "26%"}}>prev</Button>
 		</Link>
-		<Link to={"/quizquestion" + nextQuestion}>
+		<Link to={"/quiz/question" + nextQuestion}>
 		  <Button className="button" style={{left: "26%"}}>next</Button>
 		</Link>
 	      </div>
