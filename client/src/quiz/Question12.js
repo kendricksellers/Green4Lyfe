@@ -6,26 +6,17 @@ import Logo from '../LOGO-Black-Scrumbags.png'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
-import AnswerA from './images/11a.png'
-import AnswerB from './images/11b.png'
-import AnswerC from './images/11c.png'
 
-const prevQuestion = "10";
-const currQuestion = "11";
-const nextQuestion = "12";
+const prevQuestion = "11";
+const currQuestion = "12";
+const nextQuestion = "13";
 
-class QuizQuestion11 extends React.Component {
+class QuizQuestion12 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	switch (answer) {
-	case "A":
-	case "B":
-	case "C":
-	    window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
-	default:
-	    window.location.replace('http://localhost:3000/quiz/question' + "15")
+	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
     }
     answeredA = () => {
 	this.answered("A");
@@ -48,33 +39,30 @@ class QuizQuestion11 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. What are you looking to change?
+		  { currQuestion }. How much family do you live with?
 		</b>
 		<br/>
-		<div className="answer-a">
-		  <img src={AnswerA} className="answer-image" onClick={this.answeredA}/>
+		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
-		  A. 
+		  A. Just the spouse.
 		</div>
-		<div className="answer-b">
-		  <img src={AnswerB} className="answer-image" onClick={this.answeredB}/>
+		<div className="answer-b" onClick={this.answeredB}>
 		  <br/>
-		  B. 
+		  B. 1 - 2 kids
 		</div>
 		<br/>
-		<div className="answer-c">
-		  <img src={AnswerC} className="answer-image" onClick={this.answeredC}/>
+		<div className="answer-c" onClick={this.answeredC}>
 		  <br/>
-		  C. 
+		  C. 3 - 4 kids
 		</div>
 		<div className="answer-d" onClick={this.answeredD}>
 		  <br/>
-		  D. All of the above
+		  D. 5+ kids
 		</div>
 
 	      </div>
 	      <div style={{position: "absolute", top: "90%", left: "42%"}}>
-		<Link to={"/quiz/question" + nextQuestion}>
+		<Link to={"/quiz/question" + prevQuestion}>
 		  <Button className="button" style={{left: "26%"}}>prev</Button>
 		</Link>
 		<Link to={"/quiz/question" + nextQuestion}>
@@ -86,5 +74,5 @@ class QuizQuestion11 extends React.Component {
     }
 }
 
-export default QuizQuestion11;
+export default QuizQuestion12;
 

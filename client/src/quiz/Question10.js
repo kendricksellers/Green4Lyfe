@@ -42,20 +42,20 @@ class QuizQuestion10 extends React.Component {
 		  { currQuestion }. How much family do you live with?
 		</b>
 		<br/>
-		<div className="answer-a">
+		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
 		  A. Just the spouse.
 		</div>
-		<div className="answer-b">
+		<div className="answer-b" onClick={this.answeredA}>
 		  <br/>
 		  B. 1 - 2 kids
 		</div>
 		<br/>
-		<div className="answer-c">
+		<div className="answer-c" onClick={this.answeredA}>
 		  <br/>
 		  C. 3 - 4 kids
 		</div>
-		<div className="answer-d">
+		<div className="answer-d" onClick={this.answeredA}>
 		  <br/>
 		  D. 5+ kids
 		</div>
