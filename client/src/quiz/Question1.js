@@ -42,7 +42,9 @@ class QuizQuestion1 extends React.Component {
 		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
 	      </Link>
 	      <div className="question-box">
-		<b>1. What is the most valuable thing to you?</b>
+		<b>
+		  { currQuestion }. What is the most valuable thing to you?
+		</b>
 		<br/>
 		<div className="answer-a">
 		  <img src={AnswerA} className="answer-image" onClick={this.answeredA}/>

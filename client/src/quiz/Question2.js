@@ -39,7 +39,9 @@ class QuizQuestion2 extends React.Component {
 		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
 	      </Link>
 	      <div className="question-box">
-		<b>2. How social are you?</b>
+		<b>
+		  { currQuestion }. How social are you?
+		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
 		  A. Stay away from me
