@@ -7,11 +7,11 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
 
-const prevQuestion = "6";
-const currQuestion = "7";
-const nextQuestion = "8";
+const prevQuestion = "7";
+const currQuestion = "8";
+const nextQuestion = "9";
 
-class QuizQuestion7 extends React.Component {
+class QuizQuestion8 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
@@ -74,5 +74,5 @@ class QuizQuestion7 extends React.Component {
     }
 }
 
-export default QuizQuestion7;
+export default QuizQuestion8;
 
