@@ -18,6 +18,7 @@ import QuizQuestion4 from './quiz/Question4';
 import QuizQuestion5 from './quiz/Question5';
 import QuizQuestion6 from './quiz/Question6';
 import QuizQuestion7 from './quiz/Question7';
+import QuizQuestion8 from './quiz/Question8';
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -40,6 +41,7 @@ ReactDOM.render(
 	  <Route path='/quiz/question5' component={QuizQuestion5} />
 	  <Route path='/quiz/question6' component={QuizQuestion6} />
 	  <Route path='/quiz/question7' component={QuizQuestion7} />
+	  <Route path='/quiz/question8' component={QuizQuestion8} />
 	</Switch>
       </BrowserRouter>,
     rootElement
