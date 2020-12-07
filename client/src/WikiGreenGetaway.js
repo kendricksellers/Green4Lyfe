@@ -10,13 +10,11 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
 
-// So far this page just looks like Tiny House as a placeholder
-
-let infoSelect = wikiInfo["Tiny_House"]
-let arrayIndex = 7  //maybe if i just change the index of wikiInfo and imageArray that could work
+let infoSelect = wikiInfo["Green_Getaway"]
+let arrayIndex = 6  //maybe if i just change the index of wikiInfo and imageArray that could work
 const imageArray = [Community_Garden, Minimalism, Sustainability, Veganism, Plastics, Gardening, Green_Getaway, Tiny_House, EcoVillage, Future_City, Earthships]
 
-class Wiki extends React.Component {
+class WikiEcoVillage extends React.Component {
   constructor(props){
     super(props);
 
@@ -36,9 +34,6 @@ class Wiki extends React.Component {
   }
 
   render() {
-    // There's bound to be a cleaner and more efficient way of formatting all of these wiki pages and side buttons
-    // But I don't have enough time to figure that out
-
     return (	    
       <div>
         <Link to='/'>
@@ -161,18 +156,38 @@ class Wiki extends React.Component {
         </div> 
         <div class="lifestyle_Main_Blurb">
           { infoSelect.map((life) => {return life.Blurb }) }
-          
-          <a target="_blank" href="https://www.ecowatch.com/tiny-house-eco-friendly-2639728847.html?rebelltitem=1#rebelltitem1">this article</a>
-<br/>&emsp;&emsp; -General reduction in resource footprint from buying less items
-<br/>&emsp;&emsp; -Customizability - many owners work on and modify their homes to fit their preferences and needs, or order custom builds made a certain way
+          <br/><br/>
+          <a target="_blank" href="https://www.cnn.com/travel/article/green-vacations-sustainable-places/index.html">Some sustainable spots across the world known for their tourism</a>
+          <br/><br/>
+          <a target="_blank" href="https://www.arcosanti.org/tours/">Arcosanti - The Sustainable Eco Village in the desert</a>
+          <br/><br/>
+          Want to check out futuristic and sustainable cities to visit and live in around the world?&nbsp;
+            <Link to='/wikifuturecity'>
+              See our Futuristic Cities page
+            </Link>.
 
-          <br/><br/>Not exactly what you’re looking for? Check out our&nbsp;
-          <Link to='/wikiearthship'>
-            Earthship 
-          </Link> or&nbsp;
+            <br/><br/><br/>
+            Hostels are a great way to meet friends, and live simply while travelling or staying over periods of time in a new city.
+            <br/>&emsp;&emsp;- Looking to try a short or long stay in one of the USA’s big cities communal living PodShares?&nbsp;
+              <a target="_blank" href="https://www.podshare.com/">Check this out</a>.
+            <br/>&emsp;&emsp;- Here are some well known&nbsp;
+              <a target="_blank" href="https://thepointsguy.com/guide/sustainable-travel-on-a-budget-best-eco-friendly-hostels/">sustainable hostels</a>
+            , and&nbsp;
+              <a target="_blank" href="https://www.hostelworld.com/blog/eco-friendly-hostels/">more here</a>.
+            <br/>&emsp;&emsp;- Or, check out&nbsp;
+              <a target="_blank" href="https://www.hostelworld.com/">other hostel options here</a>.
+
+              <br/><br/>
+              Travel can be environmentally taxing with fuel use, single-use plastics, and boarding upkeep. Check out&nbsp;
+                <a target="_blank" href="https://www.nytimes.com/guides/travel/how-to-travel-sustainably">these tips </a>
+              to be more sustainable when you travel. Check out&nbsp;
+                <a target="_blank" href="https://sustainabletravel.org/our-work/carbon-offsets/calculate-footprint/">this site </a>
+              to donate to offset the carbon footprint you generate by flying.
+          
+          <br/><br/>
           <Link to='/wikiecovillage'>
-            EcoVillage 
-          </Link> page.
+            Check out the EcoVillage page 
+          </Link> if you want to visit a potential sustainable new community. 
         </div>
 
         <Link to='/userhome'>
@@ -187,4 +202,4 @@ class Wiki extends React.Component {
     );
   }
 }
-export default Wiki;
+export default WikiEcoVillage;

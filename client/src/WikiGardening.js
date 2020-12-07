@@ -10,13 +10,11 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
 
-// So far this page just looks like Tiny House as a placeholder
-
-let infoSelect = wikiInfo["Tiny_House"]
-let arrayIndex = 7  //maybe if i just change the index of wikiInfo and imageArray that could work
+let infoSelect = wikiInfo["Gardening"]
+let arrayIndex = 5  //maybe if i just change the index of wikiInfo and imageArray that could work
 const imageArray = [Community_Garden, Minimalism, Sustainability, Veganism, Plastics, Gardening, Green_Getaway, Tiny_House, EcoVillage, Future_City, Earthships]
 
-class Wiki extends React.Component {
+class WikiEcoVillage extends React.Component {
   constructor(props){
     super(props);
 
@@ -36,9 +34,6 @@ class Wiki extends React.Component {
   }
 
   render() {
-    // There's bound to be a cleaner and more efficient way of formatting all of these wiki pages and side buttons
-    // But I don't have enough time to figure that out
-
     return (	    
       <div>
         <Link to='/'>
@@ -161,18 +156,30 @@ class Wiki extends React.Component {
         </div> 
         <div class="lifestyle_Main_Blurb">
           { infoSelect.map((life) => {return life.Blurb }) }
-          
-          <a target="_blank" href="https://www.ecowatch.com/tiny-house-eco-friendly-2639728847.html?rebelltitem=1#rebelltitem1">this article</a>
-<br/>&emsp;&emsp; -General reduction in resource footprint from buying less items
-<br/>&emsp;&emsp; -Customizability - many owners work on and modify their homes to fit their preferences and needs, or order custom builds made a certain way
 
-          <br/><br/>Not exactly what you’re looking for? Check out our&nbsp;
-          <Link to='/wikiearthship'>
-            Earthship 
-          </Link> or&nbsp;
-          <Link to='/wikiecovillage'>
-            EcoVillage 
-          </Link> page.
+          <a target="_blank" href="https://www.epa.gov/recycle/composting-home">Find out more here.</a>
+          <br/>4.	Source renewable resources when you can - get locally sourced stone, or use 
+          naturally occurring field stones or old bricks instead of expensive pavers 
+          which have traveled across the country to get to your house. Use&nbsp;
+          <a target="_blank" href="https://www.motherearthliving.com/gardening/growing-mind-your-mulch">sustainable mulch</a>
+          
+          { infoSelect.map((life) => {return life.Blurb2 }) }
+          
+          <a target="_blank" href="https://passthepistil.com/how-to-harvest-save-seeds/">viable seeds which you can harvest, dry, and replant</a>
+          
+          &nbsp;when the time is right, others can be&nbsp;
+          <a target="_blank" href="https://www.masterclass.com/articles/how-to-propagate-plants">propagated vegetatively</a>
+          &nbsp;through cuttings and other fun methods. 
+
+          <br/><br/>
+          <a target="_blank" href="https://www.dummies.com/home-garden/gardening/sustainable-gardening-for-dummies-cheat-sheet/">Sustainable gardening for dummies</a>
+          
+          <br/><br/>
+          <a target="_blank" href="https://themicrogardener.com/7-sustainable-garden-design-tips/">Tips for a sustainable garden</a>
+          
+
+
+
         </div>
 
         <Link to='/userhome'>
@@ -187,4 +194,4 @@ class Wiki extends React.Component {
     );
   }
 }
-export default Wiki;
+export default WikiEcoVillage;
