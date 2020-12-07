@@ -24,6 +24,8 @@ import QuizQuestion10 from './quiz/Question10';
 import QuizQuestion11 from './quiz/Question11';
 import QuizQuestion12 from './quiz/Question12';
 import QuizQuestion13 from './quiz/Question13';
+import QuizQuestion14 from './quiz/Question14';
+import QuizQuestion15 from './quiz/Question15';
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -52,6 +54,8 @@ ReactDOM.render(
 	  <Route path='/quiz/question11' component={QuizQuestion11} />
 	  <Route path='/quiz/question12' component={QuizQuestion12} />
 	  <Route path='/quiz/question13' component={QuizQuestion13} />
+	  <Route path='/quiz/question14' component={QuizQuestion14} />
+	  <Route path='/quiz/question15' component={QuizQuestion15} />
 	</Switch>
       </BrowserRouter>,
     rootElement

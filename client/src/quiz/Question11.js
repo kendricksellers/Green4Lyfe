@@ -19,12 +19,9 @@ class QuizQuestion11 extends React.Component {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	switch (answer) {
-	case "A":
-	case "B":
-	case "C":
+	if (answer === "A" || answer === "B" || answer === "C")
 	    window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
-	default:
+	else
 	    window.location.replace('http://localhost:3000/quiz/question' + "15")
     }
     answeredA = () => {
@@ -54,18 +51,18 @@ class QuizQuestion11 extends React.Component {
 		<div className="answer-a">
 		  <img src={AnswerA} className="answer-image" onClick={this.answeredA}/>
 		  <br/>
-		  A. 
+		  A. Diet
 		</div>
 		<div className="answer-b">
 		  <img src={AnswerB} className="answer-image" onClick={this.answeredB}/>
 		  <br/>
-		  B. 
+		  B. Habits
 		</div>
 		<br/>
 		<div className="answer-c">
 		  <img src={AnswerC} className="answer-image" onClick={this.answeredC}/>
 		  <br/>
-		  C. 
+		  C. Lifestyle
 		</div>
 		<div className="answer-d" onClick={this.answeredD}>
 		  <br/>
