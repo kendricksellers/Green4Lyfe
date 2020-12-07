@@ -7,82 +7,71 @@ import querystring from 'querystring';
 
 
 class PostList extends React.Component{
+    
+    //Try using this? A little more lightweight
     state = {
         posts : []
     }
 
-    //Constructor for post bar value and function initializiation
+    //Constructor for post input value (value) and function initializiation (handling Change for input bar and Submit button)
+    //Props stuff necessary for stability
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
-            displayedPosts: [
-                {
-                    user: "haha"
-                },
-                {
-                    user: "haeehe"
-                }
-            ],
+            postInput: '',
+            displayedPosts: [],
             currUserPostCount: 0
         };
     
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-      }
+    }
       
-      //Triggered by submit button
-      handleSubmit(event) {
+    //Triggered by submit button
+    handleSubmit(event) {
         event.preventDefault();
         this.post();
-      }
+    }
 
-      //Savve the data in the search bar into a variable
-      handleChange(event) {
-        this.setState({value: event.target.value});
-      }
+    //Savve the data in the search bar into a variable
+    handleChange(event) {
+        this.setState({postInput: event.target.value});
+    }
 
-    //Initialization of the app
+    //Initialization of the blog page
     componentDidMount(){
         this.getPosts();
     }
     
     //Function to call all posts for the current user
     async getPosts(){
-        const res = await axios.get("http://localhost:5000/api/posts/" + this.getUsername())
+        await axios.get("http://localhost:5000/api/posts/" + this.getUsername())
         .then((response) => {
             console.log(response)
             this.setState({displayedPosts: response.data})
-            //this.setState({currUserPostCount: response.data.length}); 
-            console.log(this.state.currUserPostCount)
+            this.setState({currUserPostCount: response.data.length})
           })
          .catch((error)=>{
             console.log(error);
          });
-        
-          //this.setState({
-            //displayedPosts: [this.state.displayedPosts]
-          //})
     }
 
     //Function to post
     async post(){
         const data = querystring.stringify({
-            content: this.state.value,
+            content: this.state.postInput,
             username: this.getUsername(),
             title: "Silly Post",
-            postID: 22
+            postID: this.state.currUserPostCount + 30
         });
 
-        const res = await axios.post("http://localhost:5000/api/posts", data)
+        await axios.post("http://localhost:5000/api/posts", data)
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
             console.log(error);
           });
-
-          console.log(this.state.value)
 
         this.getPosts();
     }
@@ -95,21 +84,11 @@ class PostList extends React.Component{
         return username;
     }
 
-    //Function to print posts
-    renderList(){
-        return this.state.posts.map(post => {
-            return <div key={post.id}>
-                <h3>{post.title}</h3>
-            </div>
-        })
-    }
-
     //Function create post list entries and save into array displayPosts
-    IdiomaticReactList() { 
+    preparePosts() { 
         var printPosts = this.state.displayedPosts.map(function(entry){
-                        return <li>Name: {entry.username}, Title: {entry.title}, Content: {entry.content}, PostID: {entry.postID}</li>;
-                      })
-
+            return <li>Name: {entry.username}, Title: {entry.title}, Content: {entry.content}, PostID: {entry.postID}</li>;
+        })
         return  <ul>{ printPosts }</ul>
     }
     
@@ -126,8 +105,7 @@ class PostList extends React.Component{
                     <div class="ui button" onClick={this.handleSubmit}>Post</div>
                 </div>
                 <div>
-                    <li>{/*this.state.displayedPosts*/}</li>
-                    <b>{ this.IdiomaticReactList() }</b>
+                    <b>{ this.preparePosts() }</b>
                 </div>
             </div>
             
