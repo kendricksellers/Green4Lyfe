@@ -1,27 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './Quiz.css'
-import './green4lyfe.css'
-import Logo from './LOGO-Black-Scrumbags.png'
+import '../green4lyfe.css'
+import Logo from '../LOGO-Black-Scrumbags.png'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
-import AnswerA from './1a.png'
-import AnswerB from './1b.png'
-import AnswerC from './1c.png'
-import AnswerD from './1d.png'
-import { getCookie } from './cookie.js'
+import { getCookie } from '../cookie.js'
+import AnswerA from './images/1a.png'
+import AnswerB from './images/1b.png'
+import AnswerC from './images/1c.png'
+import AnswerD from './images/1d.png'
 
 const prevQuestion = null;
 const currQuestion = "1";
 const nextQuestion = "2";
 
 class QuizQuestion1 extends React.Component {
-
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quizquestion' + nextQuestion)
+	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
     }
     answeredA = () => {
 	this.answered("A");

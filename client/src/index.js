@@ -11,7 +11,8 @@ import Blog from './Blog';
 import Calculator from './Calculator';
 import Results from './Results';
 import ResultsNoAccount from './ResultsNoAccount';
-import QuizQuestion1 from './QuizQuestion1';
+import QuizQuestion1 from './quiz/Question1';
+import QuizQuestion2 from './quiz/Question2';
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -27,7 +28,8 @@ ReactDOM.render(
 	  <Route path='/calculator' component={Calculator} />
 	  <Route path='/results' component={Results} />
 	  <Route path='/resultsnoaccount' component={ResultsNoAccount} />
-	  <Route path='/quizquestion1' component={QuizQuestion1} />
+	  <Route path='/quiz/question1' component={QuizQuestion1} />
+	  <Route path='/quiz/question2' component={QuizQuestion2} />
 	</Switch>
       </BrowserRouter>,
     rootElement
