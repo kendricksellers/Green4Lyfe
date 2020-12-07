@@ -45,20 +45,20 @@ class QuizQuestion9 extends React.Component {
 		  { currQuestion }. Who do you live with?
 		</b>
 		<br/>
-		<div className="answer-a">
+		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
 		  A. By myself.
 		</div>
-		<div className="answer-b">
+		<div className="answer-b" onClick={this.answeredB}>
 		  <br/>
 		  B. I have some roommates.
 		</div>
 		<br/>
-		<div className="answer-c">
+		<div className="answer-c" onClick={this.answeredC}>
 		  <br/>
 		  C. With my parents.
 		</div>
-		<div className="answer-d">
+		<div className="answer-d" onClick={this.answeredD}>
 		  <br/>
 		  D. I am currently supporting a family.
 		</div>
