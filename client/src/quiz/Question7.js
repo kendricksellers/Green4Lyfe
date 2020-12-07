@@ -42,20 +42,20 @@ class QuizQuestion7 extends React.Component {
 		  { currQuestion }. How do you feel about living off the grid?
 		</b>
 		<br/>
-		<div className="answer-a">
+		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
 		  A. I don’t know.
 		</div>
-		<div className="answer-b">
+		<div className="answer-b" onClick={this.answeredB}>
 		  <br/>
 		  B. Best way to live.
 		</div>
 		<br/>
-		<div className="answer-c">
+		<div className="answer-c" onClick={this.answeredC}>
 		  <br/>
 		  C. Sounds uncomfortable.
 		</div>
-		<div className="answer-d">
+		<div className="answer-d" onClick={this.answeredD}>
 		  <br/>
 		  D. I need WIFI.
 		</div>

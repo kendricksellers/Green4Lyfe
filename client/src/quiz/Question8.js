@@ -42,20 +42,20 @@ class QuizQuestion8 extends React.Component {
 		  { currQuestion }. How do you feel about your job?
 		</b>
 		<br/>
-		<div className="answer-a">
+		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
 		  A. Can I quit now?
 		</div>
-		<div className="answer-b">
+		<div className="answer-b" onClick={this.answeredB}>
 		  <br/>
 		  B. No work, no worries.
 		</div>
 		<br/>
-		<div className="answer-c">
+		<div className="answer-c" onClick={this.answeredC}>
 		  <br/>
 		  C. I love my job!!!
 		</div>
-		<div className="answer-d">
+		<div className="answer-d" onClick={this.answeredD}>
 		  <br/>
 		  D. It pays the bills.
 		</div>
