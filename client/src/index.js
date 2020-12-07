@@ -13,6 +13,7 @@ import Results from './Results';
 import ResultsNoAccount from './ResultsNoAccount';
 import QuizQuestion1 from './quiz/Question1';
 import QuizQuestion2 from './quiz/Question2';
+import QuizQuestion3 from './quiz/Question3';
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -30,6 +31,7 @@ ReactDOM.render(
 	  <Route path='/resultsnoaccount' component={ResultsNoAccount} />
 	  <Route path='/quiz/question1' component={QuizQuestion1} />
 	  <Route path='/quiz/question2' component={QuizQuestion2} />
+	  <Route path='/quiz/question3' component={QuizQuestion3} />
 	</Switch>
       </BrowserRouter>,
     rootElement
