@@ -6,8 +6,19 @@ import './Results.css'
 import ResultImage from './foraging.webp'
 import { Button } from 'semantic-ui-react'
 import './green4lyfe.css'
+import { getCookie } from './cookie.js'
 
 class ResultsNoAccount extends React.Component {
+
+    getResults = () => {
+	event.preventDefault();
+	const data = querystring.stringify({
+	});
+	axios.post('http://localhost:5000/api/quizzes/results', data)
+		  .then(response => {
+		      
+		  })
+    }
 
     render() {
 	return (
@@ -20,11 +31,6 @@ class ResultsNoAccount extends React.Component {
 		<br/>
 		Profile Picture
 	      </div>
-	      <select className="ui dropdown" style={{position: "absolute", left: "48%", top: "15%"}}>
-		<option>Past results</option>
-		<option>Oct 30th, 2020</option>
-		<option>Nov 10th, 2020</option>
-	      </select>
 	      <div style={{textAlign: "center", position: "absolute", height: "60%", width: "60%", left: "21%", top: "30%"}}>
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
@@ -38,8 +44,6 @@ class ResultsNoAccount extends React.Component {
 		</Button>
 	      </Link>
 	      <div className="ui segment" style={{position: "absolute", top: "45%", right: "5%"}}>
-		YOUR NAME HERE<br/>
-		ACCOUNT INFORMATION<br/>
 		<Link to="/register">Create Account</Link><br/>
 		<Link to="/">Exit</Link><br/>
 	      </div>
