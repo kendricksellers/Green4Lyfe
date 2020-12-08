@@ -6,16 +6,16 @@ import Logo from '../LOGO-Black-Scrumbags.png'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
-import AnswerA from './images/15a.png'
-import AnswerB from './images/15b.png'
-import AnswerC from './images/15c.png'
-import AnswerD from './images/15d.png'
+import AnswerA from './images/21a.png'
+import AnswerB from './images/21b.png'
+import AnswerC from './images/21c.png'
+import AnswerD from './images/21d.png'
 
-const prevQuestion = "14";
-const currQuestion = "15";
-const nextQuestion = "16";
+const prevQuestion = "20";
+const currQuestion = "21";
+const nextQuestion = "22";
 
-class QuizQuestion15 extends React.Component {
+class QuizQuestion21 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
@@ -43,29 +43,29 @@ class QuizQuestion15 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. Which one of these options are you least comfortable with?
+		  { currQuestion }. How materialistic do you consider yourself to be?
 		</b>
 		<br/>
 		<div className="answer-a">
 		  <img src={AnswerA} className="answer-image" onClick={this.answeredA}/>
 		  <br/>
-		  A. Living off the grid.
+		  A. I love my stuff.
 		</div>
 		<div className="answer-b">
 		  <img src={AnswerB} className="answer-image" onClick={this.answeredB}/>
 		  <br/>
-		  B. Living zero waste.
+		  B. I am a minimalist.
 		</div>
 		<br/>
 		<div className="answer-c">
 		  <img src={AnswerC} className="answer-image" onClick={this.answeredC}/>
 		  <br/>
-		  C. Plant based diet.
+		  C. I am a hoarder.
 		</div>
 		<div className="answer-d">
 		  <img src={AnswerD} className="answer-image" onClick={this.answeredD}/>
 		  <br/>
-		  D. Living off the land.
+		  D. I could live with less than I have.
 		</div>
 
 	      </div>
@@ -82,5 +82,5 @@ class QuizQuestion15 extends React.Component {
     }
 }
 
-export default QuizQuestion15;
+export default QuizQuestion21;
 

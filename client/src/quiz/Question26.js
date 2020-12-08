@@ -6,21 +6,17 @@ import Logo from '../LOGO-Black-Scrumbags.png'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
-import AnswerA from './images/15a.png'
-import AnswerB from './images/15b.png'
-import AnswerC from './images/15c.png'
-import AnswerD from './images/15d.png'
 
-const prevQuestion = "14";
-const currQuestion = "15";
-const nextQuestion = "16";
+const prevQuestion = "25";
+const currQuestion = "26";
+const nextQuestion = null;
 
-class QuizQuestion15 extends React.Component {
+class QuizQuestion26 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	window.location.replace('http://localhost:3000/resultsnoaccount')
     }
     answeredA = () => {
 	this.answered("A");
@@ -43,38 +39,30 @@ class QuizQuestion15 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. Which one of these options are you least comfortable with?
+		  { currQuestion }. Are you interested in vacationing to an eco-friendly location before making a commitment?
 		</b>
 		<br/>
-		<div className="answer-a">
-		  <img src={AnswerA} className="answer-image" onClick={this.answeredA}/>
+		<div className="answer-a" onClick={this.answeredA}>
 		  <br/>
-		  A. Living off the grid.
+		  A. Definitely!
 		</div>
-		<div className="answer-b">
-		  <img src={AnswerB} className="answer-image" onClick={this.answeredB}/>
+		<div className="answer-b" onClick={this.answeredB}>
 		  <br/>
-		  B. Living zero waste.
+		  B. Nope, thanks though.
 		</div>
 		<br/>
-		<div className="answer-c">
-		  <img src={AnswerC} className="answer-image" onClick={this.answeredC}/>
+		<div className="answer-c" onClick={this.answeredC}>
 		  <br/>
-		  C. Plant based diet.
+		  C. I am confident that I want a major lifestyle change.
 		</div>
-		<div className="answer-d">
-		  <img src={AnswerD} className="answer-image" onClick={this.answeredD}/>
+		<div className="answer-d" onClick={this.answeredD}>
 		  <br/>
-		  D. Living off the land.
+		  D. Depends on the cost.
 		</div>
-
 	      </div>
 	      <div style={{position: "absolute", top: "90%", left: "42%"}}>
-		<Link to={"/quiz/question" + nextQuestion}>
+		<Link to={"/quiz/question" + prevQuestion}>
 		  <Button className="button" style={{left: "26%"}}>prev</Button>
-		</Link>
-		<Link to={"/quiz/question" + nextQuestion}>
-		  <Button className="button" style={{left: "26%"}}>next</Button>
 		</Link>
 	      </div>
 	    </div>
@@ -82,5 +70,5 @@ class QuizQuestion15 extends React.Component {
     }
 }
 
-export default QuizQuestion15;
+export default QuizQuestion26;
 

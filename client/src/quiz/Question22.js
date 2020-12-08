@@ -6,21 +6,25 @@ import Logo from '../LOGO-Black-Scrumbags.png'
 import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
-import AnswerA from './images/15a.png'
-import AnswerB from './images/15b.png'
-import AnswerC from './images/15c.png'
-import AnswerD from './images/15d.png'
+import AnswerA from './images/22a.png'
+import AnswerB from './images/22b.png'
+import AnswerC from './images/22c.png'
+import AnswerD from './images/22d.png'
 
-const prevQuestion = "14";
-const currQuestion = "15";
-const nextQuestion = "16";
+const prevQuestion = "21";
+const currQuestion = "22";
+const nextQuestion = "23";
 
-class QuizQuestion15 extends React.Component {
+class QuizQuestion22 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	if (getCookie("q11") == "A")
+	    window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	else
+	    window.location.replace('http://localhost:3000/quiz/question' + "24")
+
     }
     answeredA = () => {
 	this.answered("A");
@@ -43,29 +47,29 @@ class QuizQuestion15 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. Which one of these options are you least comfortable with?
+		  { currQuestion }. Which architectural style do you like the best?
 		</b>
 		<br/>
 		<div className="answer-a">
 		  <img src={AnswerA} className="answer-image" onClick={this.answeredA}/>
 		  <br/>
-		  A. Living off the grid.
+		  A. Modern
 		</div>
 		<div className="answer-b">
 		  <img src={AnswerB} className="answer-image" onClick={this.answeredB}/>
 		  <br/>
-		  B. Living zero waste.
+		  B. Accentric
 		</div>
 		<br/>
 		<div className="answer-c">
 		  <img src={AnswerC} className="answer-image" onClick={this.answeredC}/>
 		  <br/>
-		  C. Plant based diet.
+		  C. Art Deco
 		</div>
 		<div className="answer-d">
 		  <img src={AnswerD} className="answer-image" onClick={this.answeredD}/>
 		  <br/>
-		  D. Living off the land.
+		  D. They are all good
 		</div>
 
 	      </div>
@@ -82,5 +86,5 @@ class QuizQuestion15 extends React.Component {
     }
 }
 
-export default QuizQuestion15;
+export default QuizQuestion22;
 
