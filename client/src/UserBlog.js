@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import './green4lyfe.css';
 import Logo from './LOGO-Black-Scrumbags.png';
-import './Blog.css';
 import ProfilePicture from './face.jpg'
 
 class UserBlog extends React.Component {

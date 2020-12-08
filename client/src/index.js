@@ -19,6 +19,8 @@ import WikiVeganism from './WikiVeganism';
 import UserHome from './UserHome';
 import UserBlog from './UserBlog';
 import Blog from './Blog';
+import BlogTemplate from './BlogTemplate';
+import PostList from './PostList';
 import Calculator from './Calculator';
 import Results from './Results';
 import ResultsNoAccount from './ResultsNoAccount';
@@ -30,6 +32,7 @@ ReactDOM.render(
       <BrowserRouter>
 	<Switch>
 	  <Route exact path='/' component={App} />
+	  <Route path='/posts' component={PostList} />
 	  <Route path='/login' component={Login} />
 	  <Route path='/register' component={Register} />
 	  <Route path='/wiki' component={Wiki} />
@@ -46,6 +49,7 @@ ReactDOM.render(
 	  <Route path='/wikiveganism' component={WikiVeganism} />
 	  <Route path='/userhome' component={UserHome} />
 	  <Route path='/blog' component={Blog} />
+	  <Route path='/blogtemplate' component={BlogTemplate} />
 	  <Route path='/userblog' component={UserBlog} />
 	  <Route path='/calculator' component={Calculator} />
 	  <Route path='/results' component={Results} />
