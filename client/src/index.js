@@ -9,6 +9,7 @@ import Quiz from './Quiz';
 import UserHome from './UserHome';
 import UserBlog from './UserBlog';
 import Blog from './Blog';
+import BlogTemplate from './BlogTemplate';
 import PostList from './PostList';
 import Calculator from './Calculator';
 import Results from './Results';
@@ -26,6 +27,7 @@ ReactDOM.render(
 	  <Route path='/quiz' component={Quiz} />
 	  <Route path='/userhome' component={UserHome} />
 	  <Route path='/blog' component={Blog} />
+	  <Route path='/blogtemplate' component={BlogTemplate} />
 	  <Route path='/userblog' component={UserBlog} />
 	  <Route path='/calculator' component={Calculator} />
 	  <Route path='/results' component={Results} />
