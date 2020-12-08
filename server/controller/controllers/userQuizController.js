@@ -43,6 +43,20 @@ export const updateUserQuiz = async (req, res) => {
     })
 }
 
+export const getLifestyle = async (req, res) => {
+    const data = req.body;
+    try {
+        let lifestyle = calculateLifestyle(data);
+        if (lifestyle) {
+            res.status(200).send(lifestyle);
+        } else {
+            res.status(200).send({ error: "Unable to calculate lifestyle quiz results" });
+        }
+    } catch {
+        res.status(200).send({ error: "Unable to calculate lifestyle quiz results" });
+    }
+}
+
 function calculateLifestyle(quiz) {
     let answers = quiz.answers;
     let lifestyleObj = {};
