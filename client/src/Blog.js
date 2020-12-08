@@ -19,30 +19,40 @@ class Blog extends React.Component{
         this.state = {
 			postInput: '',
 			postTitle: '',
+			deleteNum: 0,
             displayedPosts: [],
             currUserPostCount: 0
         };
     
-        this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleSubmitDel = this.handleSubmitDel.bind(this);
 		this.handleChangePost = this.handleChangePost.bind(this);
 		this.handleChangeTitle = this.handleChangeTitle.bind(this);
+		this.handleChangeDel = this.handleChangeDel.bind(this);
 		this.preparePosts = this.preparePosts.bind(this);
     }
       
-    //Triggered by submit button
+    //Triggered by submit buttons
     handleSubmit(event) {
         event.preventDefault();
 		this.post();
 		this.setState({postInput: ''});
-    }
+	}
+	handleSubmitDel(event) {
+        event.preventDefault();
+		this.deletePost(event.target.value);
+		this.setState({deleteNum: 0});
+	}
 
-    //Savve the data in the search bar into a variable
+    //Save the data in the search bar into a variable
     handleChangePost(event) {
-		this.setState({postInput: event.target.value});
-		
+		this.setState({postInput: event.target.value});	
 	}
 	handleChangeTitle(event) {
 		this.setState({postTitle: event.target.value});
+	}
+	handleChangeDel(event) {
+		this.setState({deleteNum: event.target.value});
     }
 
     //Initialization of the blog page
@@ -97,8 +107,22 @@ class Blog extends React.Component{
         return username;
 	}
 
+	//Deleting post call
+	async deletePost(){
+		console.log(this.state.deleteNum);
+        await axios.delete("http://localhost:5000/api/posts" + "/" + this.getUsername() + "/" + this.state.deleteNum)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+        this.getPosts();
+    }
+
     //Function create post list entries and save into array displayPosts
-    preparePosts(username) { 
+    preparePosts() { 
 		if (this.state.currUserPostCount === 0){
 			return <div>Write a post to get started!</div>
 		}
@@ -106,7 +130,7 @@ class Blog extends React.Component{
 			var printPosts = this.state.displayedPosts.map(function(entry){
 				return (
 					<div class="ui raised clearing segment">
-						{entry.username === username && <div ><Icon className="delete_icon" delete name='delete'/></div>}
+						{/*entry.username === username && <div ><Icon circular onClick={this.deletePost(entry.postID)} className="delete_icon" delete name='delete'/></div>*/}
 						<top>
 							<h3 className="postHeaders">"{entry.title}" by {entry.username} (Post {entry.postID})</h3>
   							<p>{entry.content}</p>
@@ -138,7 +162,7 @@ class Blog extends React.Component{
 				<div class="left">
 					<div class="ui action input">
 						<div>
-							<Form class="ui form">
+							<Form class="postForm">
 								<div class="field" value={this.state.postTitle} onChange={this.handleChangeTitle}>
 									<label>Post Title</label>
 									<input placeholder=""></input>
@@ -151,6 +175,15 @@ class Blog extends React.Component{
   							</Form>
 						</div>
                 	</div>
+				</div>
+				<div class="bottomLeft">
+					<Form class="deleteLabel" class="ui form">
+								<div padding-top="25px"  class="field" value={this.state.deleteNum} onChange={this.handleChangeDel}>
+									<label>Post # To Delete</label>
+									<input placeholder="Write a number here"></input>
+								</div>
+						<button class="ui button" onClick={this.handleSubmitDel}>Delete</button>
+					</Form>
 				</div>
 				<div class="right">
 					<div>

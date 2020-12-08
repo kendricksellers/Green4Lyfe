@@ -5,7 +5,7 @@ body {
 .left {
     position: absolute;
     left: 5%;
-    top: 20%;
+    top: 15%;
     text-align: left;
 }
 .right {
@@ -25,4 +25,10 @@ body {
 }
 .postHeaders{
     left: 50px;
+}
+.bottomLeft{
+    position: absolute;
+    left: 5%;
+    top: 85%;
+    text-align: left;
 }
