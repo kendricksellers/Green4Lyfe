@@ -7,12 +7,11 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
 
-const prevQuestion = "1";
-const currQuestion = "2";
-const nextQuestion = "3";
+const prevQuestion = "15";
+const currQuestion = "16";
+const nextQuestion = "17";
 
-class QuizQuestion2 extends React.Component {
-
+class QuizQuestion16 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
@@ -40,21 +39,25 @@ class QuizQuestion2 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. How social are you?
+		  { currQuestion }. If you were to challenge yourself, which one of the options would you be willing to try?
 		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
-		  A. Stay away from me
+		  <br/>
+		  A. Living off the grid.
 		</div>
 		<div className="answer-b" onClick={this.answeredB}>
-		  B. I need as many friends as possible
+		  <br/>
+		  B. Living zero waste.
 		</div>
 		<br/>
 		<div className="answer-c" onClick={this.answeredC}>
-		  C. I have a couple of best friends
+		  <br/>
+		  C. Plant based diet.
 		</div>
 		<div className="answer-d" onClick={this.answeredD}>
-		  D. People are ew
+		  <br/>
+		  D. Living off the land.
 		</div>
 
 	      </div>
@@ -71,5 +74,5 @@ class QuizQuestion2 extends React.Component {
     }
 }
 
-export default QuizQuestion2;
+export default QuizQuestion16;
 

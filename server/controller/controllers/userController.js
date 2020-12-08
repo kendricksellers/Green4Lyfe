@@ -41,6 +41,8 @@ export const authUser = async(req, res) => {
         if (user.password === authRequest.password) {
             cleanProfile(user);
             res.json(user);
+	    console.log(user);
+	    console.log("The user is above^");
         } else {
             return res.status(200).send( { error: "Incorrect username or password"} );
         }

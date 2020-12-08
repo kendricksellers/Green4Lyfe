@@ -7,12 +7,11 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
 
-const prevQuestion = "1";
-const currQuestion = "2";
-const nextQuestion = "3";
+const prevQuestion = "17";
+const currQuestion = "18";
+const nextQuestion = "19";
 
-class QuizQuestion2 extends React.Component {
-
+class QuizQuestion18 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
@@ -40,21 +39,25 @@ class QuizQuestion2 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. How social are you?
+		  { currQuestion }. Which one of these would you consider to be a non essential?
 		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
-		  A. Stay away from me
+		  <br/>
+		  A. Internet / Service
 		</div>
 		<div className="answer-b" onClick={this.answeredB}>
-		  B. I need as many friends as possible
+		  <br/>
+		  B. TV
 		</div>
 		<br/>
 		<div className="answer-c" onClick={this.answeredC}>
-		  C. I have a couple of best friends
+		  <br/>
+		  C. AC
 		</div>
 		<div className="answer-d" onClick={this.answeredD}>
-		  D. People are ew
+		  <br/>
+		  D. None of the above
 		</div>
 
 	      </div>
@@ -71,5 +74,5 @@ class QuizQuestion2 extends React.Component {
     }
 }
 
-export default QuizQuestion2;
+export default QuizQuestion18;
 

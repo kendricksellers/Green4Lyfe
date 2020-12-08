@@ -7,12 +7,11 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
 
-const prevQuestion = "1";
-const currQuestion = "2";
-const nextQuestion = "3";
+const prevQuestion = "13";
+const currQuestion = "14";
+const nextQuestion = "15";
 
-class QuizQuestion2 extends React.Component {
-
+class QuizQuestion12 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
@@ -25,12 +24,6 @@ class QuizQuestion2 extends React.Component {
     answeredB = () => {
 	this.answered("B");
     }
-    answeredC = () => {
-	this.answered("C");
-    }
-    answeredD = () => {
-	this.answered("D");
-    }
 
     render() {
 	return (
@@ -40,23 +33,17 @@ class QuizQuestion2 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. How social are you?
+		  { currQuestion }. Are you interested in seeing international options?
 		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
-		  A. Stay away from me
+		  <br/>
+		  A. Heck yeah
 		</div>
 		<div className="answer-b" onClick={this.answeredB}>
-		  B. I need as many friends as possible
+		  <br/>
+		  B. Thanks, no thanks
 		</div>
-		<br/>
-		<div className="answer-c" onClick={this.answeredC}>
-		  C. I have a couple of best friends
-		</div>
-		<div className="answer-d" onClick={this.answeredD}>
-		  D. People are ew
-		</div>
-
 	      </div>
 	      <div style={{position: "absolute", top: "90%", left: "42%"}}>
 		<Link to={"/quiz/question" + prevQuestion}>
@@ -71,5 +58,5 @@ class QuizQuestion2 extends React.Component {
     }
 }
 
-export default QuizQuestion2;
+export default QuizQuestion12;
 

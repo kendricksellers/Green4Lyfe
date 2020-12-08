@@ -11,7 +11,11 @@ import { getCookie } from './cookie.js'
 class ResultsNoAccount extends React.Component {
 
     getResults = () => {
+<<<<<<< HEAD
 	event.preventDefault();
+=======
+
+>>>>>>> quiz-questions
 	const data = querystring.stringify({
 	});
 	axios.post('http://localhost:5000/api/quizzes/results', data)

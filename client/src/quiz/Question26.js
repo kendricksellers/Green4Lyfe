@@ -7,17 +7,16 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
 
-const prevQuestion = "1";
-const currQuestion = "2";
-const nextQuestion = "3";
+const prevQuestion = "25";
+const currQuestion = "26";
+const nextQuestion = null;
 
-class QuizQuestion2 extends React.Component {
-
+class QuizQuestion26 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	window.location.replace('http://localhost:3000/resultsnoaccount')
     }
     answeredA = () => {
 	this.answered("A");
@@ -40,30 +39,30 @@ class QuizQuestion2 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. How social are you?
+		  { currQuestion }. Are you interested in vacationing to an eco-friendly location before making a commitment?
 		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
-		  A. Stay away from me
+		  <br/>
+		  A. Definitely!
 		</div>
 		<div className="answer-b" onClick={this.answeredB}>
-		  B. I need as many friends as possible
+		  <br/>
+		  B. Nope, thanks though.
 		</div>
 		<br/>
 		<div className="answer-c" onClick={this.answeredC}>
-		  C. I have a couple of best friends
+		  <br/>
+		  C. I am confident that I want a major lifestyle change.
 		</div>
 		<div className="answer-d" onClick={this.answeredD}>
-		  D. People are ew
+		  <br/>
+		  D. Depends on the cost.
 		</div>
-
 	      </div>
 	      <div style={{position: "absolute", top: "90%", left: "42%"}}>
 		<Link to={"/quiz/question" + prevQuestion}>
 		  <Button className="button" style={{left: "26%"}}>prev</Button>
-		</Link>
-		<Link to={"/quiz/question" + nextQuestion}>
-		  <Button className="button" style={{left: "26%"}}>next</Button>
 		</Link>
 	      </div>
 	    </div>
@@ -71,5 +70,5 @@ class QuizQuestion2 extends React.Component {
     }
 }
 
-export default QuizQuestion2;
+export default QuizQuestion26;
 

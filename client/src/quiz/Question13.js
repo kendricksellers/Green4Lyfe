@@ -7,17 +7,19 @@ import 'semantic-ui-css/semantic.min.css'
 import { Button } from 'semantic-ui-react'
 import { getCookie } from '../cookie.js'
 
-const prevQuestion = "1";
-const currQuestion = "2";
-const nextQuestion = "3";
+const prevQuestion = "12";
+const currQuestion = "13";
+const nextQuestion = "14";
 
-class QuizQuestion2 extends React.Component {
-
+class QuizQuestion10 extends React.Component {
     answered = (answer) => {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	if (answer === "B")
+	    window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	else
+	    window.location.replace('http://localhost:3000/quiz/question' + 15)
     }
     answeredA = () => {
 	this.answered("A");
@@ -40,21 +42,25 @@ class QuizQuestion2 extends React.Component {
 	      </Link>
 	      <div className="question-box">
 		<b>
-		  { currQuestion }. How social are you?
+		  { currQuestion }. How far would you be willing to relocate?
 		</b>
 		<br/>
 		<div className="answer-a" onClick={this.answeredA}>
-		  A. Stay away from me
+		  <br/>
+		  A. As close to home as possible.
 		</div>
 		<div className="answer-b" onClick={this.answeredB}>
-		  B. I need as many friends as possible
+		  <br/>
+		  B. I’ll move anywhere.
 		</div>
 		<br/>
 		<div className="answer-c" onClick={this.answeredC}>
-		  C. I have a couple of best friends
+		  <br/>
+		  C. I would like to stay in my state.
 		</div>
 		<div className="answer-d" onClick={this.answeredD}>
-		  D. People are ew
+		  <br/>
+		  D. Within the country.
 		</div>
 
 	      </div>
@@ -71,5 +77,5 @@ class QuizQuestion2 extends React.Component {
     }
 }
 
-export default QuizQuestion2;
+export default QuizQuestion10;
 
