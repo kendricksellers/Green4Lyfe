@@ -10,13 +10,11 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
 
-// So far this page just looks like Tiny House as a placeholder
-
-let infoSelect = wikiInfo["Tiny_House"]
-let arrayIndex = 7  //maybe if i just change the index of wikiInfo and imageArray that could work
+let infoSelect = wikiInfo["Sustainability"]
+let arrayIndex = 2  //maybe if i just change the index of wikiInfo and imageArray that could work
 const imageArray = [Community_Garden, Minimalism, Sustainability, Veganism, Plastics, Gardening, Green_Getaway, Tiny_House, EcoVillage, Future_City, Earthships]
 
-class Wiki extends React.Component {
+class WikiSustainability extends React.Component {
   constructor(props){
     super(props);
 
@@ -36,9 +34,6 @@ class Wiki extends React.Component {
   }
 
   render() {
-    // There's bound to be a cleaner and more efficient way of formatting all of these wiki pages and side buttons
-    // But I don't have enough time to figure that out
-
     return (	    
       <div>
         <Link to='/'>
@@ -161,18 +156,42 @@ class Wiki extends React.Component {
         </div> 
         <div class="lifestyle_Main_Blurb">
           { infoSelect.map((life) => {return life.Blurb }) }
-          
-          <a target="_blank" href="https://www.ecowatch.com/tiny-house-eco-friendly-2639728847.html?rebelltitem=1#rebelltitem1">this article</a>
-<br/>&emsp;&emsp; -General reduction in resource footprint from buying less items
-<br/>&emsp;&emsp; -Customizability - many owners work on and modify their homes to fit their preferences and needs, or order custom builds made a certain way
 
-          <br/><br/>Not exactly what you’re looking for? Check out our&nbsp;
-          <Link to='/wikiearthship'>
-            Earthship 
-          </Link> or&nbsp;
-          <Link to='/wikiecovillage'>
-            EcoVillage 
-          </Link> page.
+          <a target="_blank" href="https://www.energy.gov/energysaver/articles/save-energy-your-household-smart-power-strip">smart powerstrip</a>
+
+          { infoSelect.map((life) => {return life.Blurb2 }) }
+
+          <br/>&emsp;&emsp;&nbsp;-
+          <a target="_blank" href="https://www.energysage.com/solar/why-go-solar/">Install solar panels</a>
+
+          <br/>&emsp;&emsp;&nbsp;-
+          <a target="_blank" href="https://www.energy.gov/energysaver/weatherize/insulation/adding-insulation-existing-home">Insulate your walls and windows</a>
+
+          <br/>&emsp;&emsp;&nbsp;-
+          <a target="_blank" href="https://ygrene.com/windows-doors">Install better sealed doors and windows</a>
+
+          <br/>&emsp;&emsp;&nbsp;-Replace any incandescent bulbs with LEDs
+
+          <br/>&emsp;&emsp;&nbsp;-Install a&nbsp;
+          <a target="_blank" href="https://home.howstuffworks.com/low-flow-toilet.htm">low-flow toilet</a>
+            &nbsp;or&nbsp;
+          <a target="_blank" href="https://www.energy.gov/energysaver/water-heating/reduce-hot-water-use-energy-savings">showerhead</a>
+
+          <br/>&emsp;&emsp;&nbsp;-
+          <a target="_blank" href="https://www.energy.gov/energysaver/weatherize/home-energy-audits">Do an energy audit</a>
+          
+          <br/>&emsp;&emsp;&nbsp;-Cover large windows or glass doors with drapes when not using them
+          <br/>&emsp;&emsp;&nbsp;-Install a&nbsp;
+
+          <a target="_blank" href="https://www.epa.gov/soakuptherain/soak-rain-rain-barrels">rain barrel</a>          
+          &nbsp;to collect irrigation water
+
+          <br/>&emsp;&emsp;&nbsp;-
+          <a target="_blank" href="https://www.saveonenergy.com/learning-center/post/dimmer-switch/">Install dimmer switches</a>
+          
+          
+
+
         </div>
 
         <Link to='/userhome'>
@@ -187,4 +206,4 @@ class Wiki extends React.Component {
     );
   }
 }
-export default Wiki;
+export default WikiSustainability;

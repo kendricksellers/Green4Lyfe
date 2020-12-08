@@ -19,11 +19,11 @@ class App extends React.Component {
 	      </button></Link>
 	      <div style={{position: 'absolute', bottom: '30%', left: '30%'}}>
 		<img src={VideoImage} alt="Generic video image" style={{height: '300px', width: '500px'}} />
-		<Link to='/quiz'><button className="ui button take-quiz-button">
+		<Link to='/quiz/question1'><button className="ui button take-quiz-button">
 		    Take the quiz
 		</button></Link>
 	      </div>
-	      <div className="ui" style={{position: 'absolute', bottom: '10%', right: '65%'}}>
+	      <div className="ui segment" style={{position: 'absolute', bottom: '10%', right: '65%'}}>
 		Take our quiz for a wonderful Green experience! We promise<br></br>
 		that we put our heart and soul into this website and the <br></br>
 		magical	green energy it will give you. I\'m talking about<br></br>

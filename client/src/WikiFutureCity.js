@@ -10,13 +10,11 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
 
-// So far this page just looks like Tiny House as a placeholder
-
-let infoSelect = wikiInfo["Tiny_House"]
-let arrayIndex = 7  //maybe if i just change the index of wikiInfo and imageArray that could work
+let infoSelect = wikiInfo["Future_City"]
+let arrayIndex = 9  //maybe if i just change the index of wikiInfo and imageArray that could work
 const imageArray = [Community_Garden, Minimalism, Sustainability, Veganism, Plastics, Gardening, Green_Getaway, Tiny_House, EcoVillage, Future_City, Earthships]
 
-class Wiki extends React.Component {
+class WikiFutureCity extends React.Component {
   constructor(props){
     super(props);
 
@@ -36,9 +34,6 @@ class Wiki extends React.Component {
   }
 
   render() {
-    // There's bound to be a cleaner and more efficient way of formatting all of these wiki pages and side buttons
-    // But I don't have enough time to figure that out
-
     return (	    
       <div>
         <Link to='/'>
@@ -161,18 +156,22 @@ class Wiki extends React.Component {
         </div> 
         <div class="lifestyle_Main_Blurb">
           { infoSelect.map((life) => {return life.Blurb }) }
-          
-          <a target="_blank" href="https://www.ecowatch.com/tiny-house-eco-friendly-2639728847.html?rebelltitem=1#rebelltitem1">this article</a>
-<br/>&emsp;&emsp; -General reduction in resource footprint from buying less items
-<br/>&emsp;&emsp; -Customizability - many owners work on and modify their homes to fit their preferences and needs, or order custom builds made a certain way
+<br/>
+<br/>
+Visit only
+<br/>- <a target="_blank" href="https://www.arcosanti.org/">Arcosanti</a>
+<br/>- <a target="_blank" href="https://masdar.ae/en/masdar-city">Masdar City, UAE</a>
+<br/>
+<br/>
+World’s Most Sustainable Cities
+<br/>- <a target="_blank" href="https://www.afar.com/magazine/greenest-cities-in-the-world-in-2020">https://www.afar.com/magazine/greenest-cities-in-the-world-in-2020</a>
+<br/>- <a target="_blank" href="https://www.lux-review.com/top-10-sustainable-cities-around-the-world/ ">https://www.lux-review.com/top-10-sustainable-cities-around-the-world/ </a>
 
-          <br/><br/>Not exactly what you’re looking for? Check out our&nbsp;
-          <Link to='/wikiearthship'>
-            Earthship 
-          </Link> or&nbsp;
-          <Link to='/wikiecovillage'>
-            EcoVillage 
-          </Link> page.
+<br/>
+<br/>Looking for more travel options? Check out our&nbsp;
+          <Link to='/wikigreengetaway'>
+              Green Getaway page.
+          </Link> 
         </div>
 
         <Link to='/userhome'>
@@ -187,4 +186,4 @@ class Wiki extends React.Component {
     );
   }
 }
-export default Wiki;
+export default WikiFutureCity;

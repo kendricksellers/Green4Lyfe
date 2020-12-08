@@ -10,13 +10,11 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
 
-// So far this page just looks like Tiny House as a placeholder
-
-let infoSelect = wikiInfo["Tiny_House"]
-let arrayIndex = 7  //maybe if i just change the index of wikiInfo and imageArray that could work
+let infoSelect = wikiInfo["Veganism"]
+let arrayIndex = 3  //maybe if i just change the index of wikiInfo and imageArray that could work
 const imageArray = [Community_Garden, Minimalism, Sustainability, Veganism, Plastics, Gardening, Green_Getaway, Tiny_House, EcoVillage, Future_City, Earthships]
 
-class Wiki extends React.Component {
+class WikiVeganism extends React.Component {
   constructor(props){
     super(props);
 
@@ -36,9 +34,6 @@ class Wiki extends React.Component {
   }
 
   render() {
-    // There's bound to be a cleaner and more efficient way of formatting all of these wiki pages and side buttons
-    // But I don't have enough time to figure that out
-
     return (	    
       <div>
         <Link to='/'>
@@ -161,18 +156,37 @@ class Wiki extends React.Component {
         </div> 
         <div class="lifestyle_Main_Blurb">
           { infoSelect.map((life) => {return life.Blurb }) }
-          
-          <a target="_blank" href="https://www.ecowatch.com/tiny-house-eco-friendly-2639728847.html?rebelltitem=1#rebelltitem1">this article</a>
-<br/>&emsp;&emsp; -General reduction in resource footprint from buying less items
-<br/>&emsp;&emsp; -Customizability - many owners work on and modify their homes to fit their preferences and needs, or order custom builds made a certain way
 
-          <br/><br/>Not exactly what you’re looking for? Check out our&nbsp;
-          <Link to='/wikiearthship'>
-            Earthship 
-          </Link> or&nbsp;
-          <Link to='/wikiecovillage'>
-            EcoVillage 
-          </Link> page.
+          <a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S2212371713000024">this research paper</a>
+          , and 77% of agricultural land according to&nbsp;
+          
+          <a target="_blank" href="https://www.onegreenplanet.org/news/chart-shows-worlds-land-used/">this article</a>.
+          These huge industries can be trimmed down if everyone puts in some effort, no matter how small. 
+          Plant based diets have also been proven to increase longevity and general health over your lifetime!
+
+          <br/><br/>
+          <a target="_blank" href="https://www.downtoearth.org/go-veggie/environment/top-10-reasons">Here</a>
+
+          { infoSelect.map((life) => {return life.Blurb2 }) }
+
+          <br/>
+          &emsp;&emsp;&nbsp;- <a target="_blank" href="https://thewimpyvegetarian.com/10-tips-for-becoming-a-vegetarian-for-beginners/">Vegetarian</a>
+          &nbsp;- Eat no animal flesh of any kind, but animal products like dairy are ok.
+
+          <br/>
+          &emsp;&emsp;&nbsp;- <a target="_blank" href="http://www.eatingwell.com/article/279566/9-healthy-tips-to-help-you-start-eating-a-vegan-diet/">Vegan</a>
+          &nbsp;- Eat no animal flesh or animal products of any kind - entirely plant based! (You might be surprised by the food alternatives you’ve never tried!)
+
+          <br/><br/>
+          Don’t think you can hack it? Start small! Try a vegetarian or vegan dish that sounds interesting every once in a while, you may be very pleasantly surprised.
+          
+          <br/><br/>
+          Be careful! Not all plant food products are created equally, and&nbsp;
+          <a target="_blank" href="https://www.bbc.com/future/article/20200211-why-the-vegan-diet-is-not-always-green">some have actually proven to not be that sustainable.</a>
+          
+
+
+
         </div>
 
         <Link to='/userhome'>
@@ -187,4 +201,4 @@ class Wiki extends React.Component {
     );
   }
 }
-export default Wiki;
+export default WikiVeganism;

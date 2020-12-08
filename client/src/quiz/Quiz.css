@@ -1,0 +1,27 @@
+.question-box {
+    position: absolute;
+    top: 10%;
+    left: 32%;
+    width: 70%;
+    height: 70%;
+}
+.answer-image {
+    width: 200px;
+    height: 200px;
+}
+.answer-a {
+    position: absolute;
+}
+.answer-b {
+    position: absolute;
+    left: 30%;
+}
+.answer-c {
+    position: absolute;
+    bottom: -10%;
+}
+.answer-d {
+    position: absolute;
+    left: 30%;
+    bottom: -10%;
+}
