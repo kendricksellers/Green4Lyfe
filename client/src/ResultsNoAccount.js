@@ -25,7 +25,6 @@ class ResultsNoAccount extends React.Component {
 				this.lifestyle = response.data;
 				console.log(this.lifestyle);
 			})
-		return result;
     }
 
     render() {
@@ -43,7 +42,6 @@ class ResultsNoAccount extends React.Component {
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
-		  You seem to be into <b>{ this.getResults() } </b>!
 		</div>
 	      </div>
 	      <Link to="/quiz/question1">
