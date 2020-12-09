@@ -77,7 +77,7 @@ ReactDOM.render(
 	  <Route path='/userblog' component={UserBlog} />
 	  <Route path='/calculator' component={Calculator} />
 	  <Route path='/results' component={Results} />
-	  <Route path='/resultsnoaccount' component={ResultsNoAccount} />
+	  <Route path='/quiz/resultsnoaccount' component={ResultsNoAccount} />
 	  <Route path='/quiz/question1' component={QuizQuestion1} />
 	  <Route path='/quiz/question2' component={QuizQuestion2} />
 	  <Route path='/quiz/question3' component={QuizQuestion3} />

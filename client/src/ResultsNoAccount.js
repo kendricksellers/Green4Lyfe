@@ -7,21 +7,20 @@ import ResultImage from './foraging.webp'
 import { Button } from 'semantic-ui-react'
 import './green4lyfe.css'
 import { getCookie } from './cookie.js'
+import querystring from 'querystring'
+import axios from 'axios'
+import { getQuizValue } from './quiz/calculateResults.js'
 
 class ResultsNoAccount extends React.Component {
 
     getResults = () => {
-<<<<<<< HEAD
-	event.preventDefault();
-=======
-
->>>>>>> quiz-questions
-	const data = querystring.stringify({
-	});
+	const data = getQuizValue(null);
+	var result = null;
 	axios.post('http://localhost:5000/api/quizzes/results', data)
 		  .then(response => {
-		      
+		      result = response
 		  })
+	return result;
     }
 
     render() {
@@ -39,7 +38,7 @@ class ResultsNoAccount extends React.Component {
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
-		  You seem to be into <b>Foraging</b>!
+		  You seem to be into <b>{ this.getResults() } </b>!
 		</div>
 	      </div>
 	      <Link to="/quiz/question1">
