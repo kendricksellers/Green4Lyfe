@@ -20,6 +20,7 @@ db.once("open", () => {
     console.log("Successfully connected to mongoose database!");
 });
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // https://stackoverflow.com/questions/60425501/how-to-fetch-and-display-data-from-express-api-to-a-react-app

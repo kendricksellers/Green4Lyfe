@@ -12,15 +12,20 @@ import axios from 'axios'
 import { getQuizValue } from './quiz/calculateResults.js'
 
 class ResultsNoAccount extends React.Component {
+	lifestyle = [];
+
+	componentDidMount() {
+		this.getResults();
+	}
 
     getResults = () => {
-	const data = getQuizValue(null);
-	var result = null;
-	axios.post('http://localhost:5000/api/quizzes/results', data)
-		  .then(response => {
-		      result = response
-		  })
-	return result;
+		const data = getQuizValue(null);
+		axios.post('http://localhost:5000/api/quizzes/results', data)
+			.then(response => {
+				this.lifestyle = response.data;
+				console.log(this.lifestyle);
+			})
+		return result;
     }
 
     render() {
