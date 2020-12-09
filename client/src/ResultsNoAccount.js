@@ -10,28 +10,27 @@ import { getCookie } from './cookie.js'
 import querystring from 'querystring'
 import axios from 'axios'
 import { getQuizValue } from './quiz/calculateResults.js'
-import { getLifestyle } from './quiz/getLifestyle.js'
+import { getLifestyleOption, getLifestyleName, getLifestyleImage } from './quiz/getLifestyle.js'
 
 class ResultsNoAccount extends React.Component {
-    lifestyle = [];
+    constructor() {
+	super();
+	this.state = { modifiers: [], topLifestyleOption: null, lifestyleName: '', lifestyleImage: null};
+    }
     
     componentDidMount() {
 	this.getResults();
+	
     }
     
     getResults = () => {
 	const data = getQuizValue(null);
 	axios.post('http://localhost:5000/api/quizzes/results', data)
 	    .then(response => {
-		this.lifestyle = response.data;
-		console.log(this.lifestyle);
+		this.setState({ modifiers: response.data, topLifestyleOption: getLifestyleOption(response.data) });
+		this.setState({ lifestyleName: getLifestyleName(this.state.topLifestyleOption.category),
+				lifestyleImage: getLifestyleImage(this.state.topLifestyleOption.category)})
 	    })
-    }
-
-    results = () => {
-	this.componentDidMount()
-	console.log(this.lifestyle)
-	return getLifestyle(this.lifestyle)
     }
 
 
@@ -43,9 +42,9 @@ class ResultsNoAccount extends React.Component {
 	      </Link>
 	      <div style={{textAlign: "center", position: "absolute", height: "60%", width: "60%", left: "21%", top: "30%"}}>
 		<div>
-		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
+		  <img src={this.state.lifestyleImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
-		  { this.results() }
+		  <b>{ this.state.lifestyleName }</b>
 		</div>
 	      </div>
 	      <Link to="/quiz/question1">
