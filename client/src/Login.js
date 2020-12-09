@@ -24,7 +24,7 @@ class Login extends React.Component {
 	    username: this.username,
 	    password: this.password
 	});
-	axios.post('http://localhost:5000/api/users/login', data)
+	axios.post('https://green4lyfe.herokuapp.com/api/users/login', data)
 		  .then(response => {
 		      if (response.data.error)
 			  this.setState({authenticationFailure: true})
@@ -32,7 +32,7 @@ class Login extends React.Component {
 			  var date = new Date();
 			  date.setTime(date.getTime() + (60 * 60 * 1000));
 			  document.cookie = "username=" + this.username + "; expires=" + date.toUTCString() + ";";
-			  window.location.replace('http://localhost:3000/userhome')
+			  window.location.replace('https://green4lyfe.netlify.app/userhome')
 		      }
 		  })
     }
