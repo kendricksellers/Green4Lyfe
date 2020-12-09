@@ -6,6 +6,7 @@ import userQuizRouter from './routers/userQuizModelRouter.js';
 import blogPostRouter from './routers/blogPostModelRouter.js';
 import express from 'express';
 const app = express();
+require("dotenv").config();
 
 //Added two lines below because CORS was blocking requests on my machine - Sam
 //var cors = require('cors')
@@ -35,7 +36,7 @@ app.use('/api/users/', userRouter);
 app.use('/api/quizzes/', userQuizRouter);
 app.use('/api/posts/', blogPostRouter);
 
-const port = config.port;
+const port = (process.env.PORT || config.port);
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
