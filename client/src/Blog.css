@@ -2,10 +2,16 @@ body {
     font-size: 16px;
     font-family: Arial;
 }
-.left {
+.switch{
     position: absolute;
     left: 5%;
-    top: 15%;
+    top: 14%;
+    text-align: left;
+}
+.post {
+    position: absolute;
+    left: 5%;
+    top: 20%;
     text-align: left;
 }
 .right {
@@ -26,9 +32,15 @@ body {
 .postHeaders{
     left: 50px;
 }
-.bottomLeft{
+.deleteAndUpdate{
     position: absolute;
     left: 5%;
     top: 85%;
     text-align: left;
+}
+.updateBox{
+    position: absolute;
+    top: 120%;
+    text-align: left;
+    font: 15px Arial, sans-serif;
 }
