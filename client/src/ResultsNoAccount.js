@@ -13,7 +13,6 @@ import { getQuizValue } from './quiz/calculateResults.js'
 import { getLifestyleOption, getLifestyleName, getLifestyleImage } from './quiz/getLifestyle.js'
 
 class ResultsNoAccount extends React.Component {
-<<<<<<< HEAD
     constructor() {
 	super();
 	this.state = { modifiers: [], topLifestyleOption: null, lifestyleName: '', lifestyleImage: null};
@@ -29,31 +28,13 @@ class ResultsNoAccount extends React.Component {
 	axios.post('http://localhost:5000/api/quizzes/results', data)
 	    .then(response => {
 		this.setState({ modifiers: response.data, topLifestyleOption: getLifestyleOption(response.data) });
-		this.setState({ lifestyleName: getLifestyleName(this.state.topLifestyleOption.category),
-				lifestyleImage: getLifestyleImage(this.state.topLifestyleOption.category)})
+		this.setState({ lifestyleName: getLifestyleName(this.state.topLifestyleOption),
+				lifestyleImage: getLifestyleImage(this.state.topLifestyleOption)})
+		console.log(this.state.topLifestyleOption)
 	    })
     }
 
 
-=======
-	constructor() {
-		super();
-		this.state = { modifiers: [], topLifestyle: '' };
-	}
-    
-    componentDidMount() {
-		this.getResults();
-    }
-    
-    getResults = () => {
-		const data = getQuizValue(null);
-		axios.post('http://localhost:5000/api/quizzes/results', data)
-			.then(response => {
-				this.setState({ modifiers: response.data, topLifestyle: getLifestyle(response.data) });
-			})
-    }
-
->>>>>>> 5121ca325eb081af7f31e242feffd0d129e187f5
     render() {
 	return (
 	    <div>
@@ -64,11 +45,8 @@ class ResultsNoAccount extends React.Component {
 		<div>
 		  <img src={this.state.lifestyleImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
-<<<<<<< HEAD
 		  <b>{ this.state.lifestyleName }</b>
-=======
 		  { this.state.topLifestyle }
->>>>>>> 5121ca325eb081af7f31e242feffd0d129e187f5
 		</div>
 	      </div>
 	      <Link to="/quiz/question1">

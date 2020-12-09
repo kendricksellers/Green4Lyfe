@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router'
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './Quiz.css'
@@ -20,9 +21,9 @@ class QuizQuestion11 extends React.Component {
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
 	if (answer === "A" || answer === "B" || answer === "C")
-	    window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+	    this.props.history.push('question' + nextQuestion)
 	else
-	    window.location.replace('http://localhost:3000/quiz/question' + "15")
+	    this.props.history.push('question' + "15")
     }
     answeredA = () => {
 	this.answered("A");
