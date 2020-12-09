@@ -10,22 +10,30 @@ import { getCookie } from './cookie.js'
 import querystring from 'querystring'
 import axios from 'axios'
 import { getQuizValue } from './quiz/calculateResults.js'
+import { getLifestyle } from './quiz/getLifestyle.js'
 
 class ResultsNoAccount extends React.Component {
-	lifestyle = [];
-
-	componentDidMount() {
-		this.getResults();
-	}
-
-    getResults = () => {
-		const data = getQuizValue(null);
-		axios.post('http://localhost:5000/api/quizzes/results', data)
-			.then(response => {
-				this.lifestyle = response.data;
-				console.log(this.lifestyle);
-			})
+    lifestyle = [];
+    
+    componentDidMount() {
+	this.getResults();
     }
+    
+    getResults = () => {
+	const data = getQuizValue(null);
+	axios.post('http://localhost:5000/api/quizzes/results', data)
+	    .then(response => {
+		this.lifestyle = response.data;
+		console.log(this.lifestyle);
+	    })
+    }
+
+    results = () => {
+	this.componentDidMount()
+	console.log(this.lifestyle)
+	return getLifestyle(this.lifestyle)
+    }
+
 
     render() {
 	return (
@@ -42,6 +50,7 @@ class ResultsNoAccount extends React.Component {
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
+		  { this.results() }
 		</div>
 	      </div>
 	      <Link to="/quiz/question1">
