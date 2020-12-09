@@ -41,11 +41,6 @@ class ResultsNoAccount extends React.Component {
 	      <Link to='/'>
 		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
 	      </Link>
-	      <div className="ui segment" style={{position: "absolute", top: "5%", right: "5%"}}>
-		<img src={ProfilePicture} style={{height: "75px", width: "75px"}}/>
-		<br/>
-		Profile Picture
-	      </div>
 	      <div style={{textAlign: "center", position: "absolute", height: "60%", width: "60%", left: "21%", top: "30%"}}>
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
