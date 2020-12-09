@@ -97,7 +97,7 @@ class Register extends React.Component {
 	})
 	request.write(querystring.stringify(data))
 	request.end()
-	window.location.replace('http://localhost:3000/userhome')
+	window.location.replace('https://green4lyfe.netlify.app/userhome')
 	
     }
     render() {
