@@ -23,12 +23,7 @@ class App extends React.Component {
 		    Take the quiz
 		</button></Link>
 	      </div>
-	      <div className="ui segment" style={{position: 'absolute', bottom: '10%', right: '65%'}}>
-		Take our quiz for a wonderful Green experience! We promise<br></br>
-		that we put our heart and soul into this website and the <br></br>
-		magical	green energy it will give you. I\'m talking about<br></br>
-		Shrek. We will turn you into Shrek.
-	      </div>
+	      
 	    </div>
 	);
     }
