@@ -24,7 +24,7 @@ class Login extends React.Component {
 	    username: this.username,
 	    password: this.password
 	});
-	axios.post('api/users/login', data)
+	axios.post('api/users/login', data, { withCredentials: true })
 		  .then(response => {
 		      if (response.data.error)
 			  this.setState({authenticationFailure: true})
