@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { withRouter } from 'reactor-router'
+import { withRouter } from 'react-router'
 import './Quiz.css'
 import '../green4lyfe.css'
 import Logo from '../LOGO-Black-Scrumbags.png'
