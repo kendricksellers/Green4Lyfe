@@ -18,7 +18,7 @@ class App extends React.Component {
 		  Log in
 	      </button></Link>
 	      <div style={{position: 'absolute', bottom: '30%', left: '30%'}}>
-		<img src={VideoImage} alt="Generic video image" style={{height: '300px', width: '500px'}} />
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL5vtqDuUM1Dk80ik96WMtRVd8j2i62M_J" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		<Link to='/quiz/question1'><button className="ui button take-quiz-button">
 		    Take the quiz
 		</button></Link>
