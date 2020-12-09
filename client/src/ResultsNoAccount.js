@@ -13,27 +13,22 @@ import { getQuizValue } from './quiz/calculateResults.js'
 import { getLifestyle } from './quiz/getLifestyle.js'
 
 class ResultsNoAccount extends React.Component {
-    lifestyle = [];
+	constructor() {
+		super();
+		this.state = { modifiers: [], topLifestyle: '' };
+	}
     
     componentDidMount() {
-	this.getResults();
+		this.getResults();
     }
     
     getResults = () => {
-	const data = getQuizValue(null);
-	axios.post('http://localhost:5000/api/quizzes/results', data)
-	    .then(response => {
-		this.lifestyle = response.data;
-		console.log(this.lifestyle);
-	    })
+		const data = getQuizValue(null);
+		axios.post('http://localhost:5000/api/quizzes/results', data)
+			.then(response => {
+				this.setState({ modifiers: response.data, topLifestyle: getLifestyle(response.data) });
+			})
     }
-
-    results = () => {
-	this.componentDidMount()
-	console.log(this.lifestyle)
-	return getLifestyle(this.lifestyle)
-    }
-
 
     render() {
 	return (
@@ -45,7 +40,7 @@ class ResultsNoAccount extends React.Component {
 		<div>
 		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
-		  { this.results() }
+		  { this.state.topLifestyle }
 		</div>
 	      </div>
 	      <Link to="/quiz/question1">
