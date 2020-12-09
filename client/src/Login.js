@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import querystring from 'querystring'
+import { withRouter } from 'react-router'
 import http from 'http'
 import Logo from './LOGO-Black-Scrumbags.png'
 import axios from 'axios'
@@ -32,7 +33,7 @@ class Login extends React.Component {
 			  var date = new Date();
 			  date.setTime(date.getTime() + (60 * 60 * 1000));
 			  document.cookie = "username=" + this.username + "; expires=" + date.toUTCString() + ";";
-			  window.location.replace('https://green4lyfe.netlify.app/userhome')
+			  this.props.history.push('https://green4lyfe.netlify.app/userhome')
 		      }
 		  })
     }
@@ -63,5 +64,5 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
 
