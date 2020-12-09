@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { withRouter } from 'reactor-router'
 import './Quiz.css'
 import '../green4lyfe.css'
 import Logo from '../LOGO-Black-Scrumbags.png'
@@ -20,7 +21,8 @@ class QuizQuestion1 extends React.Component {
 	var date = new Date();
 	date.setTime(date.getTime() + (60 * 60 * 1000));
 	document.cookie = "q" + currQuestion + "=" + answer + "; expires=" + date.toUTCString() + ";";
-	window.location.replace('http://localhost:3000/quiz/question' + nextQuestion)
+
+	this.props.history.push("question" + nextQuestion);
     }
     answeredA = () => {
 	this.answered("A");
@@ -79,5 +81,5 @@ class QuizQuestion1 extends React.Component {
     }
 }
 
-export default QuizQuestion1;
+export default withRouter(QuizQuestion1);
 

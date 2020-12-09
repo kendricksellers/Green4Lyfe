@@ -6,7 +6,8 @@ import userQuizRouter from './routers/userQuizModelRouter.js';
 import blogPostRouter from './routers/blogPostModelRouter.js';
 import express from 'express';
 const app = express();
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 //Added two lines below because CORS was blocking requests on my machine - Sam
 //var cors = require('cors')
