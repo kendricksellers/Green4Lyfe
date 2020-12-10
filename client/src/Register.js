@@ -4,6 +4,7 @@ import './Register.css'
 import Logo from './LOGO-Black-Scrumbags.png'
 import http from 'http'
 import querystring from 'querystring'
+import { withRouter } from 'react-router'
 import request from 'request'
 import 'semantic-ui-css/semantic.min.css'
 import { Input } from 'semantic-ui-react'
@@ -97,7 +98,7 @@ class Register extends React.Component {
 	})
 	request.write(querystring.stringify(data))
 	request.end()
-	window.location.replace('https://green4lyfe.netlify.app/userhome')
+	this.props.history.push('userhome');
 	
     }
     render() {
@@ -140,5 +141,5 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);
 
