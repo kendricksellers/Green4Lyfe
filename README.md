@@ -87,7 +87,7 @@ Once approval is recieved, copy the repository locally, pull the current code an
 .....................................................................................
 
 ### Known Errors and Troubleshooting
-\* Last Update: December 9th, 2020 */
+* Last Update: December 9th, 2020 *
 
 - Forget Password tool is buggy.
 - User can submit invalid email.
