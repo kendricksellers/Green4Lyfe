@@ -26,7 +26,7 @@ class Register extends React.Component {
 	    email_empty: false,
 	    confirm_password_empty: false,
 	    password_match: true,
-	    user_already_exists: false
+	    user_already_exists: false,
 	    quizResults: null
 	};
 	
