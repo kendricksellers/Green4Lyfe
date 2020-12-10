@@ -71,20 +71,18 @@ class Register extends React.Component {
 	if (failed)
 	    return;
 	
-	const data = querystring.stringify({
-		username: this.name,
+	const data = {
+	    username: this.name,
 	    password: this.password,
 	    email: this.email,
 	    registrationDate: Date.now()
-	});
+	}
 
 	axios.post('https://green4lyfe.herokuapp.com/api/users/', data)
 	document.cookie = "username=" + this.name
-	console.log(document.cookie);
 
 	this.setState({ quizResults: getQuizValue(this.name)} );
-	axios.post('https://green4lyfe.herokuapp.app/api/quizzes/results', this.state.quizResults)
-	console.log(this.state.quizResults);
+	axios.post('https://green4lyfe.herokuapp.com/api/quizzes/results', this.state.quizResults)
 
 	this.props.history.push('userhome');
 	
