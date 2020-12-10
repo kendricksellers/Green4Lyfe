@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './Register.css'
 import Logo from './LOGO-Black-Scrumbags.png'
-import http from 'http'
+import https from 'https'
 import querystring from 'querystring'
 import { withRouter } from 'react-router'
 import request from 'request'
