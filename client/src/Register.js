@@ -85,7 +85,7 @@ class Register extends React.Component {
 	    }
 	}
 	
-	const request = http.request(options, res => {
+	const request = https.request(options, res => {
 	    console.log('status: ${res.statusCode}')
 	    res.on('data', d => {
 		console.log(d);
