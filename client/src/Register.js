@@ -10,6 +10,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { Input } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
 import './green4lyfe.css'
+import { getQuizValue } from './quiz/calculateResults.js'
 
 class Register extends React.Component {
     name = null;
@@ -26,6 +27,7 @@ class Register extends React.Component {
 	    confirm_password_empty: false,
 	    password_match: true,
 	    user_already_exists: false
+	    quizResults: null
 	};
 	
 	this.handleSubmit = this.handleSubmit.bind(this);
@@ -75,18 +77,13 @@ class Register extends React.Component {
 	    email: this.email,
 	    registrationDate: Date.now()
 	}
-	const options = {
-	    hostname: 'green4lyfe.herokuapp.com',
-	    path: '/api/users/',
-	    port: 5000,
-	    method: 'POST',
-	    headers: {
-		'Content-Type': 'application/x-www-form-urlencoded',
-		'Content-Length': data.length
-	    }
-	}
+
 	axios.post('https://green4lyfe.herokuapp.com/api/users/', data)
 	document.cookie = "username=" + this.name
+
+	this.setState(quizResults: getQuizValue(this.name));
+	axios.post('https://green4lyfe.herokuapp.app/api/quizzes/results', data)
+
 	this.props.history.push('userhome');
 	
     }
