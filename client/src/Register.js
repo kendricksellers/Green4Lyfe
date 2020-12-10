@@ -75,7 +75,7 @@ class Register extends React.Component {
 	    registrationDate: Date.now()
 	}
 	const options = {
-	    hostname: 'localhost',
+	    hostname: 'green4lyfe.herokuapp.com',
 	    path: '/api/users/',
 	    port: 5000,
 	    method: 'POST',
