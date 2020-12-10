@@ -53,7 +53,7 @@ class UserHome extends React.Component {
 	      </div>
 
 	      <div className="ui segment" style={{position: "absolute", top: "45%", right: "5%"}}>
-		<Link to="/userblog">Your Blog</Link><br/>
+		<Link to="/blog">Your Blog</Link><br/>
 		<Link to="/results">Results</Link><br/>
 		<Link to="/login">Log Out</Link><br/>
 		<Link to="/">Exit</Link><br/>
