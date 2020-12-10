@@ -1,5 +1,5 @@
 ===========================================
-	## Welcome to Green4Lyfe!
+	Welcome to Green4Lyfe!
 ===========================================
 
 Welcome to the Green4Lyfe website guide! This website has been designed to be a cultural hub for individuals interested in learning more about sustainable and green lifestyle choices, starting a new lifestyle themselves, meeting like-minded patrons, and blogging about exciting things they have learned or tried in their pursuit of a greener future.  Being environmentally conscious has never been easier!  With our easy to follow guidelines, both beginners and eco experts will be able to enjoy the functionality of our site!  Come join the latest lifestyle trend and become Green4Lyfe with us!
