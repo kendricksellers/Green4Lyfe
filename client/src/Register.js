@@ -98,6 +98,7 @@ class Register extends React.Component {
 	})
 	request.write(querystring.stringify(data))
 	request.end()
+	document.cookie = "username=" + this.name
 	this.props.history.push('userhome');
 	
     }
