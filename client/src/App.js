@@ -19,6 +19,7 @@ class App extends React.Component {
 	      </button></Link>
 	      <div style={{position: 'absolute', bottom: '30%', left: '30%'}}>
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL5vtqDuUM1Dk80ik96WMtRVd8j2i62M_J" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<br/>
 		<Link to='/quiz/question1'><button className="ui button take-quiz-button">
 		    Take the quiz
 		</button></Link>
