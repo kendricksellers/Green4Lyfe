@@ -4,6 +4,7 @@ import Logo from './LOGO-Black-Scrumbags.png'
 import ProfilePicture from './face.jpg'
 import './Results.css'
 import ResultImage from './foraging.webp'
+import querystring from 'querystring';
 import 'semantic-ui-css/semantic.min.css'
 import './green4lyfe.css'
 import axios from 'axios'
