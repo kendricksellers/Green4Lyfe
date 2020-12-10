@@ -42,15 +42,12 @@ class Results extends React.Component {
 		<img src={Logo} alt='Green4Lyfe logo' style={{height: "200px", width: "300px", position: "absolute", top: "-50px", left: "-10px"}}/>
 	      </Link>
 	      <div style={{position: "absolute", top: "5%", right: "5%"}}>
-		<img src={ProfilePicture} style={{height: "75px", width: "75px"}}/>
 		<br/>
 		Profile Picture
 	      </div>
 	      <div style={{textAlign: "center", position: "absolute", height: "60%", width: "60%", left: "21%", top: "30%"}}>
 		<div>
-		  <img src={this.state.lifestyleImage} style={{height: "30%", width: "40%"}}/>
-		  <br/>
-		You seem to be into <b>{ this.state.lifestyleName }</b>!
+		<b>Under Construction!</b>
 		</div>
 	      </div>
 	      <button className="ui button" style={{position: "absolute", left: "46%", top: "60%"}}>
