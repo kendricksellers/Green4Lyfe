@@ -83,6 +83,7 @@ class Register extends React.Component {
 
 	this.setState({ quizResults: getQuizValue(this.name)} );
 	axios.post('https://green4lyfe.herokuapp.app/api/quizzes/results', this.state.quizResults)
+	console.log(this.state.quizResults);
 
 	this.props.history.push('userhome');
 	
