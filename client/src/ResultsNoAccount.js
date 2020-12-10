@@ -25,7 +25,7 @@ class ResultsNoAccount extends React.Component {
     
     getResults = () => {
 	const data = getQuizValue(null);
-	axios.post('https://green4lyfe.netlify.app/api/quizzes/results', data)
+	axios.post('https://green4lyfe.herokuapp.app/api/quizzes/results', data)
 	    .then(response => {
 		this.setState({ modifiers: response.data, topLifestyleOption: getLifestyleOption(response.data) });
 		this.setState({ lifestyleName: getLifestyleName(this.state.topLifestyleOption),
