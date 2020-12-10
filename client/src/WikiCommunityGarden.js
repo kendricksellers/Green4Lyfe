@@ -10,6 +10,7 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Gardening, Green_Getaway, Minimalism, Plastics, 
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
+import { getCookie } from './cookie.js'
 
 let infoSelect = wikiInfo["Community_Garden"]
 let arrayIndex = 0  //maybe if i just change the index of wikiInfo and imageArray that could work
@@ -33,6 +34,13 @@ class WikiPlastics extends React.Component {
   changeInfo=(page)=>{
     window.location.replace(page)
   }
+
+  getUsername() {
+    var username = getCookie("username");
+    if (username == null)
+        return <Link to="/login">Click to log in</Link>
+    return username;
+      }
 
   render() {
     return (	    
@@ -166,7 +174,7 @@ class WikiPlastics extends React.Component {
           <div style={{position: "absolute", top: "5%", right: "5%"}}>
             <img src={ProfilePicture} style={{height: "75px", width: "75px"}}/>
             <br/>
-            Profile Picture
+            <b>{ this.getUsername() }</b>
           </div>
         </Link>
 

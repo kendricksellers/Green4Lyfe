@@ -9,6 +9,7 @@ import { Earthships, EcoVillage, Future_City, Community_Garden,
   Gardening, Green_Getaway, Minimalism, Plastics, 
   Sustainability, Tiny_House, Veganism
 } from './wiki-image-list.js'
+import { getCookie } from './cookie.js'
 
 // So far this page just looks like Tiny House as a placeholder
 
@@ -34,6 +35,13 @@ class Wiki extends React.Component {
   changeInfo=(page)=>{
     window.location.replace(page)
   }
+
+  getUsername() {
+    var username = getCookie("username");
+    if (username == null)
+        return <Link to="/login">Click to log in</Link>
+    return username;
+      }
 
   render() {
     // There's bound to be a cleaner and more efficient way of formatting all of these wiki pages and side buttons
@@ -179,7 +187,7 @@ class Wiki extends React.Component {
           <div style={{position: "absolute", top: "5%", right: "5%"}}>
             <img src={ProfilePicture} style={{height: "75px", width: "75px"}}/>
             <br/>
-            Profile Picture
+            <b>{ this.getUsername() }</b>
           </div>
         </Link>
 
