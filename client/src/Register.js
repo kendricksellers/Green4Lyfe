@@ -78,7 +78,6 @@ class Register extends React.Component {
 	const options = {
 	    hostname: 'green4lyfe.herokuapp.com',
 	    path: '/api/users/',
-	    port: 5000,
 	    method: 'POST',
 	    headers: {
 		'Content-Type': 'application/x-www-form-urlencoded',
