@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './Register.css'
 import Logo from './LOGO-Black-Scrumbags.png'
-import https from 'https'
+import axios from 'axios'
 import querystring from 'querystring'
 import { withRouter } from 'react-router'
 import request from 'request'
@@ -78,26 +78,14 @@ class Register extends React.Component {
 	const options = {
 	    hostname: 'green4lyfe.herokuapp.com',
 	    path: '/api/users/',
+	    port: 5000,
 	    method: 'POST',
 	    headers: {
 		'Content-Type': 'application/x-www-form-urlencoded',
 		'Content-Length': data.length
 	    }
 	}
-	
-	const request = https.request(options, res => {
-	    console.log('status: ${res.statusCode}')
-	    res.on('data', d => {
-		console.log(d);
-	    })
-	})
-	request.on('error', error => {
-	    if (error.code === 11000)
-		this.setState({user_already_exists_error: true});
-	})
-	request.write(querystring.stringify(data))
-	request.end()
-	document.cookie = "username=" + this.name
+	axios.post('https://green4lyfe.herokuapp.com/api/users/', data)
 	this.props.history.push('userhome');
 	
     }
