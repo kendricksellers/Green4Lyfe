@@ -33,7 +33,7 @@ class Login extends React.Component {
 			  var date = new Date();
 			  date.setTime(date.getTime() + (60 * 60 * 1000));
 			  document.cookie = "username=" + this.username + "; expires=" + date.toUTCString() + ";";
-			  this.props.history.push('https://green4lyfe.netlify.app/userhome')
+			  this.props.history.push('userhome')
 		      }
 		  })
     }
