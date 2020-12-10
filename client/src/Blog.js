@@ -124,7 +124,7 @@ class Blog extends React.Component{
     
     //Function to call all posts for the current user
     async getPosts(){
-        await axios.get("https://green4lyfe.netlify.app/api/posts/" + this.getUsername())
+        await axios.get("https://green4lyfe.herokuapp.com/api/posts/" + this.getUsername())
         .then((response) => {
 			//Test if the response is array (non-error with posts in it)
 			if (Array.isArray(response.data)){
@@ -141,7 +141,7 @@ class Blog extends React.Component{
 	}
 
 	async getAllPosts(){
-        await axios.get("https://green4lyfe.netlify.app/api/posts/")
+        await axios.get("https://green4lyfe.herokuapp.com/api/posts/")
         .then((response) => {
 			//Test if the response is array (non-error with posts in it)
 			if (Array.isArray(response.data)){
@@ -158,7 +158,7 @@ class Blog extends React.Component{
 	}
 	
 	async getPost(){
-        await axios.get("https://green4lyfe.netlify.app/api/posts/" + this.getUsername() + "/" + this.state.deleteNum)
+        await axios.get("https://green4lyfe.herokuapp.com/api/posts/" + this.getUsername() + "/" + this.state.deleteNum)
         .then((response) => {
 			this.setState({requestedPostContent: response.data.content})
 			this.setState({requestedPostTitle: response.data.title})
@@ -182,7 +182,7 @@ class Blog extends React.Component{
 		this.setState({lastPostID: this.state.lastPostID + 1});
 		console.log(this.state.lastPostID);
 
-        await axios.post("https://green4lyfe.netlify.app/api/posts", data)
+        await axios.post("https://green4lyfe.herokuapp.com/api/posts", data)
           .then(function (response) {
 			console.log(response);
           })
@@ -210,7 +210,7 @@ class Blog extends React.Component{
 
 	//Deleting post call
 	async deletePost(){
-        await axios.delete("https://green4lyfe.netlify.app/api/posts/" + this.getUsername() + "/" + this.state.deleteNum)
+        await axios.delete("https://green4lyfe.herokuapp.com/api/posts/" + this.getUsername() + "/" + this.state.deleteNum)
           .then(function (response) {
             console.log(response);
           })
@@ -227,7 +227,7 @@ class Blog extends React.Component{
 			title: this.state.requestedPostTitle,
 			content: this.state.requestedPostContent,
         });
-        await axios.put("https://green4lyfe.netlify.app/api/posts/" + this.getUsername() + "/" + this.state.deleteNum, data)
+        await axios.put("https://green4lyfe.herokuapp.com/api/posts/" + this.getUsername() + "/" + this.state.deleteNum, data)
           .then(function (response) {
             console.log(response);
           })
