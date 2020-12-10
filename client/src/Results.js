@@ -23,7 +23,7 @@ class Results extends React.Component {
     }
     
     getResults = () => {
-	axios.get('https://green4lyfe.herokuapp.com/api/quizzes/' + getCookie("username"))
+	axios.get('https://green4lyfe.herokuapp.com/api/quizzes/' + getCookie("username") + "/lifestyle")
 	    .then(response => {
 		this.setState({ modifiers: response.data, topLifestyleOption: getLifestyleOption(response.data) });
 		this.setState({ lifestyleName: getLifestyleName(this.state.topLifestyleOption),
