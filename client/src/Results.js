@@ -6,8 +6,33 @@ import './Results.css'
 import ResultImage from './foraging.webp'
 import 'semantic-ui-css/semantic.min.css'
 import './green4lyfe.css'
+import axios from 'axios'
+import { getCookie } from './cookie.js'
+import { getQuizValue } from './quiz/calculateResults.js'
+import { getLifestyleOption, getLifestyleName, getLifestyleImage } from './quiz/getLifestyle.js'
 
 class Results extends React.Component {
+    constructor() {
+	super();
+	this.state = { modifiers: [], topLifestyleOption: null, lifestyleName: '', lifestyleImage: null};
+    }
+    
+    componentDidMount() {
+	this.getResults();
+	
+    }
+    
+    getResults = () => {
+	axios.get('https://green4lyfe.herokuapp.com/api/quizzes/' + getCookie("username"))
+	    .then(response => {
+		this.setState({ modifiers: response.data, topLifestyleOption: getLifestyleOption(response.data) });
+		this.setState({ lifestyleName: getLifestyleName(this.state.topLifestyleOption),
+				lifestyleImage: getLifestyleImage(this.state.topLifestyleOption)})
+		console.log(this.state.topLifestyleOption)
+	    })
+    }
+
+
 
     render() {
 	return (
@@ -20,16 +45,11 @@ class Results extends React.Component {
 		<br/>
 		Profile Picture
 	      </div>
-	      <select className="ui dropdown" style={{position: "absolute", left: "48%", top: "15%"}}>
-		<option>Past results</option>
-		<option>Oct 30th, 2020</option>
-		<option>Nov 10th, 2020</option>
-	      </select>
 	      <div style={{textAlign: "center", position: "absolute", height: "60%", width: "60%", left: "21%", top: "30%"}}>
 		<div>
-		  <img src={ResultImage} style={{height: "30%", width: "40%"}}/>
+		  <img src={this.state.lifestyleImage} style={{height: "30%", width: "40%"}}/>
 		  <br/>
-		  You seem to be into <b>Foraging</b>!
+		You seem to be into <b>{ this.state.lifestyleName }</b>!
 		</div>
 	      </div>
 	      <button className="ui button" style={{position: "absolute", left: "46%", top: "60%"}}>

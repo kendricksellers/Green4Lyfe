@@ -81,7 +81,7 @@ class Register extends React.Component {
 	axios.post('https://green4lyfe.herokuapp.com/api/users/', data)
 	document.cookie = "username=" + this.name
 
-	this.setState(quizResults: getQuizValue(this.name));
+	this.setState({ quizResults: getQuizValue(this.name)} );
 	axios.post('https://green4lyfe.herokuapp.app/api/quizzes/results', data)
 
 	this.props.history.push('userhome');
