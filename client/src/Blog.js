@@ -108,13 +108,20 @@ class Blog extends React.Component{
 		this.getAllPosts();
 		
 		setTimeout(() => {
-			const calc = this.state.displayedPosts.length - 1;
-			//this.setState({lastPostID: displayedPosts.length - 1});
-			console.log(calc);
-			var printPosts = this.state.displayedPosts.map((entry) => entry.postID
-			)
-			this.setState({lastPostID: Number(printPosts[calc])});
-			console.log(this.state.lastPostID);
+			if (this.state.displayedPosts.length >= 1){
+				const calc = this.state.displayedPosts.length - 1;
+				console.log(calc);
+				var printPosts = this.state.displayedPosts.map((entry) => entry.postID
+				)
+				this.setState({lastPostID: Number(printPosts[calc])});
+				console.log(this.state.lastPostID);
+			}
+			else {
+				this.setState({displayedPosts: []});
+				console.log("first");
+				this.setState({lastPostID: 0});
+			}
+			
 		}, 400);
 		//Obtain current postID for initialization
 		
@@ -132,7 +139,8 @@ class Blog extends React.Component{
 				this.setState({displayedPosts: response.data})
 			}
 			else {
-				console.log("User had no posts to view")
+				console.log("User had no posts to view");
+				this.setState({postID: 0});
 			}
           })
          .catch((error)=>{
@@ -150,6 +158,7 @@ class Blog extends React.Component{
 			}
 			else {
 				console.log("No one posted yet! Can you believe that?")
+				this.setState({postID: 0});
 			}
           })
          .catch((error)=>{
@@ -206,6 +215,7 @@ class Blog extends React.Component{
 			this.getAllPosts();
 		}
 		else {this.getPosts();}
+		console.log("second");
 	}
 
 	//Deleting post call
@@ -219,7 +229,7 @@ class Blog extends React.Component{
           });
 
 		this.adjustPostID();
-        this.checkPostCollection();
+		this.checkPostCollection();
 	}
 	
 	async updatePost(){
