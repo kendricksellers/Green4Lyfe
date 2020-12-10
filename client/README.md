@@ -1,12 +1,12 @@
 ===========================================
-	##Welcome to Green4Lyfe!
+	## Welcome to Green4Lyfe!
 ===========================================
 
 Welcome to the Green4Lyfe website guide! This website has been designed to be a cultural hub for individuals interested in learning more about sustainable and green lifestyle choices, starting a new lifestyle themselves, meeting like-minded patrons, and blogging about exciting things they have learned or tried in their pursuit of a greener future.  Being environmentally conscious has never been easier!  With our easy to follow guidelines, both beginners and eco experts will be able to enjoy the functionality of our site!  Come join the latest lifestyle trend and become Green4Lyfe with us!
 
 .....................................................................................
 
-###Website Information:
+### Website Information:
 
 Github link:	https://github.com/kendricksellers/Green4Lyfe.git
 Live link:	https://green4lyfe.netlify.app/
@@ -18,7 +18,7 @@ Password:	User1234!
 
 .....................................................................................
 
-###Meet our Development Team!
+### Meet our Development Team!
 
 Project Manager:	Samuel Adams
 Scrum Master:		Cassandra Garzia
@@ -28,7 +28,7 @@ Front/Back Developer:	Robert Quito
 
 .....................................................................................
 
-###API Information
+### API Information
 
 MongoDB
 Express.js
@@ -39,7 +39,7 @@ React-router-dom
 
 .....................................................................................
 
-###Website Navigation
+### Website Navigation
 
 Main Page: https://green4lyfe.netlify.app/
 
@@ -71,7 +71,7 @@ Carbon Footprint Calculator: https://green4lyfe.netlify.app/calculator
 
 .....................................................................................
 
-###Configuration Setup
+### Configuration Setup
 
 Looking to use our software?  Follow the steps below to apply for access with Green4Lyfe.
 
@@ -85,7 +85,7 @@ Once approval is recieved, copy the repository locally, pull the current code an
 
 .....................................................................................
 
-###Known Errors and Troubleshooting
+### Known Errors and Troubleshooting
 \* Last Update: December 9th, 2020 */
 
 - Forget Password tool is buggy.
@@ -94,4 +94,4 @@ Once approval is recieved, copy the repository locally, pull the current code an
 
 .....................................................................................
 
-##Thank you!
+## Thank you!
