@@ -9,6 +9,7 @@ Welcome to the Green4Lyfe website guide! This website has been designed to be a 
 ### Website Information:
 
 Github link:	https://github.com/kendricksellers/Green4Lyfe.git
+
 Live link:	https://green4lyfe.netlify.app/
 
 Default User Account:
